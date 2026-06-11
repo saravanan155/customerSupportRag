@@ -4,7 +4,8 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
-.venv/
+.venv*/
+.uv-bootstrap/
 venv/
 env/
 .pytest_cache/
