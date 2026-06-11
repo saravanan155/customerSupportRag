@@ -21,6 +21,8 @@ class AppConfig:
     pinecone_namespace: str = "customer-support-simple-rag"
     embedding_model: str = "text-embedding-3-small"
     embedding_dimensions: int = 512
+    chunk_size: int = 500
+    chunk_overlap: int = 100
 
     def missing_connection_settings(self) -> list[str]:
         """Return required connection settings that are absent."""
@@ -55,4 +57,6 @@ def load_config(load_env_file: bool = True) -> AppConfig:
         pinecone_namespace=getenv("PINECONE_NAMESPACE", "customer-support-simple-rag"),
         embedding_model=getenv("EMBEDDING_MODEL", "text-embedding-3-small"),
         embedding_dimensions=_get_int("EMBEDDING_DIMENSIONS", 512),
+        chunk_size=_get_int("CHUNK_SIZE", 500),
+        chunk_overlap=_get_int("CHUNK_OVERLAP", 100),
     )

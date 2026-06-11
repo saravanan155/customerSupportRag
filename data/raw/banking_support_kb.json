@@ -1,0 +1,850 @@
+[
+  {
+    "id": "faq-account_management-001",
+    "content": "Question: How do I open a new checking or savings account?\n\nAnswer:\nYou can open an account in three ways:\n- **Online:** Visit our website and click \"Open an Account.\" You'll need a government-issued ID, Social Security Number (SSN), and an initial deposit of at least $25.\n- **Mobile App:** Download the app, tap \"Get Started,\" and follow the guided flow.\n- **Branch:** Visit any branch with two forms of ID and your SSN.\n\nAccount approval typically takes 1-2 business days. You'll receive a confirmation email with your account number once approved.",
+    "metadata": {
+      "title": "How do I open a new checking or savings account?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-account_management-002",
+    "content": "Question: What documents are required to open an account?\n\nAnswer:\nTo open a personal account, you need:\n- A valid government-issued photo ID (driver's license, passport, or state ID)\n- Social Security Number (SSN) or Individual Taxpayer Identification Number (ITIN)\n- Proof of address (utility bill or bank statement dated within 60 days)\n- Initial deposit (minimum $25 for savings, $0 for checking with direct deposit)\n\nFor a business account, additional documents include your EIN, business license, and articles of incorporation.",
+    "metadata": {
+      "title": "What documents are required to open an account?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-account_management-003",
+    "content": "Question: How do I update my address or contact information?\n\nAnswer:\nYou can update your personal information through:\n- **Online Banking:** Log in -> Profile & Settings -> Personal Information -> Edit\n- **Mobile App:** Tap the menu icon -> Profile -> Contact Details -> Update\n- **Phone:** Call 1-800-555-0100 (available 24/7)\n- **Branch:** Visit with a valid photo ID\n\nAddress changes take effect immediately for digital communications. Physical mail (statements, cards) will use the new address within 1-2 billing cycles.",
+    "metadata": {
+      "title": "How do I update my address or contact information?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-account_management-004",
+    "content": "Question: What is the difference between a checking and a savings account?\n\nAnswer:\n| Feature | Checking Account | Savings Account |\n|---|---|---|\n| Primary use | Everyday spending | Building savings |\n| Debit card | Yes | No (ATM card only) |\n| Monthly transfers | Unlimited | Up to 6 per month |\n| Interest rate | 0.01% APY | 0.50%-4.50% APY |\n| Minimum balance | $0 | $300 to waive fee |\n\nChecking accounts are designed for frequent transactions. Savings accounts earn higher interest but federal regulations limit certain withdrawals to 6 per month.",
+    "metadata": {
+      "title": "What is the difference between a checking and a savings account?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-account_management-005",
+    "content": "Question: How do I close my account?\n\nAnswer:\nTo close an account:\n1. Ensure your balance is $0 and all pending transactions are cleared.\n2. Cancel any automatic payments or direct deposits linked to the account.\n3. Request closure via Online Banking, by calling 1-800-555-0100, or at a branch.\n\nNote: Accounts with a negative balance cannot be closed until the balance is resolved. Savings accounts closed within 180 days of opening may incur an early closure fee of $25.",
+    "metadata": {
+      "title": "How do I close my account?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-account_management-006",
+    "content": "Question: Why was my account frozen or restricted?\n\nAnswer:\nAccounts may be frozen or restricted for the following reasons:\n- **Suspected fraud or unauthorized access** - our system detected unusual login or transaction activity.\n- **Unpaid negative balance** - the account has been overdrawn for more than 30 days.\n- **Legal hold** - a court order, garnishment, or government agency has placed a hold.\n- **Identity verification required** - we need you to verify your identity to comply with KYC regulations.\n\nTo resolve a restriction, call 1-800-555-0100 or visit a branch with valid ID. Most fraud-related restrictions are resolved within 24-48 hours.",
+    "metadata": {
+      "title": "Why was my account frozen or restricted?",
+      "doc_type": "faq",
+      "product_area": "account_management",
+      "priority": "P2",
+      "platform": "branch",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "faq-cards-001",
+    "content": "Question: How do I activate my new debit or credit card?\n\nAnswer:\nYou can activate your card in three ways:\n- **Online Banking:** Log in -> Cards -> Select your card -> Activate Card\n- **Mobile App:** Go to Cards tab -> Tap your new card -> Activate\n- **Phone:** Call the activation number printed on the sticker on your card (1-800-555-0200)\n\nActivation is instant and your card is ready to use immediately after.",
+    "metadata": {
+      "title": "How do I activate my new debit or credit card?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-cards-002",
+    "content": "Question: My card was declined. What should I do?\n\nAnswer:\nCommon reasons for a declined card:\n1. **Insufficient funds** - check your available balance.\n2. **Card not activated** - new cards must be activated before first use.\n3. **Daily spending limit reached** - the default daily limit is $2,500 for debit and $5,000 for credit.\n4. **Suspected fraud** - unusual transactions may trigger a temporary block.\n5. **Expired card** - check the expiration date on the front of your card.\n6. **Incorrect PIN** - entering a wrong PIN three times locks the card for 24 hours.\n\nIf none of the above apply, call 1-800-555-0200 to speak with a card specialist.",
+    "metadata": {
+      "title": "My card was declined. What should I do?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-cards-003",
+    "content": "Question: How do I report a lost or stolen card?\n\nAnswer:\nReport a lost or stolen card immediately to prevent unauthorized charges:\n- **Mobile App:** Cards tab -> Select card -> Report Lost/Stolen (card is blocked instantly)\n- **Online Banking:** Cards -> Manage Card -> Report Lost/Stolen\n- **Phone:** 1-800-555-0200 (24/7, including international collect calls)\n\nA replacement card will be mailed within 5-7 business days. Expedited delivery (1-2 business days) is available for $15. You are not liable for unauthorized charges reported promptly under our Zero Liability Policy.",
+    "metadata": {
+      "title": "How do I report a lost or stolen card?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-cards-004",
+    "content": "Question: How do I dispute a charge on my card?\n\nAnswer:\nTo dispute a transaction:\n1. Log in to Online Banking or the Mobile App.\n2. Go to **Account Activity** and find the transaction.\n3. Click **Dispute this transaction** and select a reason (unauthorized charge, item not received, duplicate charge, etc.).\n4. Submit supporting documentation if available (receipts, emails).\n\nDisputes are typically resolved within 10 business days (up to 45 days for complex cases). A provisional credit may be applied to your account within 5 business days while the investigation is in progress.",
+    "metadata": {
+      "title": "How do I dispute a charge on my card?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-cards-005",
+    "content": "Question: What are the credit card interest rates and fees?\n\nAnswer:\n| Fee Type | Amount |\n|---|---|\n| Purchase APR | 18.99%-26.99% (based on creditworthiness) |\n| Cash Advance APR | 29.99% |\n| Annual Fee | $0 (Standard), $95 (Rewards), $495 (Platinum) |\n| Late Payment Fee | Up to $40 |\n| Foreign Transaction Fee | 3% (waived on Platinum card) |\n| Balance Transfer Fee | 3% of amount transferred (min $5) |\n\nYour specific APR is determined at account opening based on your credit score and is disclosed in your Cardmember Agreement.",
+    "metadata": {
+      "title": "What are the credit card interest rates and fees?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-cards-006",
+    "content": "Question: How do I increase my credit card limit?\n\nAnswer:\nTo request a credit limit increase:\n- **Online Banking:** Cards -> Manage Card -> Request Credit Limit Increase\n- **Mobile App:** Cards tab -> Credit Limit -> Request Increase\n- **Phone:** Call the number on the back of your card\n\nWe may perform a soft or hard credit inquiry depending on the increase amount. Eligibility criteria include: account open for at least 6 months, no missed payments in the last 12 months, and income sufficient to support the new limit.",
+    "metadata": {
+      "title": "How do I increase my credit card limit?",
+      "doc_type": "faq",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-001",
+    "content": "Question: How do I transfer money between my accounts?\n\nAnswer:\nTransfers between your accounts are instant and free:\n1. Log in to Online Banking or the Mobile App.\n2. Go to **Transfers** -> **Between My Accounts**.\n3. Select the \"From\" and \"To\" accounts, enter the amount, and choose a date.\n4. Confirm the transfer.\n\nTransfers initiated before 10 PM ET are processed same day. Transfers after 10 PM ET are processed the next business day.",
+    "metadata": {
+      "title": "How do I transfer money between my accounts?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-002",
+    "content": "Question: How do I send money to someone at another bank (ACH transfer)?\n\nAnswer:\nTo send an ACH (bank-to-bank) transfer:\n1. Go to **Transfers** -> **To Another Bank**.\n2. Add the recipient's bank routing number and account number.\n3. Verify the external account (micro-deposits take 1-2 business days).\n4. Once verified, initiate a transfer.\n\n**Processing time:** 1-3 business days. Standard ACH transfers are free. Same-day ACH is available for $5 per transfer (up to $100,000).",
+    "metadata": {
+      "title": "How do I send money to someone at another bank (ACH transfer)?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-003",
+    "content": "Question: What is a wire transfer and how is it different from ACH?\n\nAnswer:\n| | ACH Transfer | Wire Transfer |\n|---|---|---|\n| Speed | 1-3 business days | Same day (if sent before 4 PM ET) |\n| Cost | Free / $5 same-day | $25 domestic, $45 international |\n| Limit | $25,000/day | $500,000/day (online) |\n| Reversible? | Yes (within 5 days) | No - wires are final |\n| Best for | Regular payments | Urgent or large transactions |\n\nWire transfers are typically used for real estate closings, large business payments, or urgent international transfers.",
+    "metadata": {
+      "title": "What is a wire transfer and how is it different from ACH?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-004",
+    "content": "Question: How do I set up direct deposit?\n\nAnswer:\nTo set up direct deposit with your employer or benefits provider:\n1. Provide your employer with your **routing number** and **account number**.\n   - Found in Online Banking -> Account Details, or on the bottom of a check.\n2. Complete your employer's direct deposit form.\n3. Allow 1-2 pay cycles for the change to take effect.\n\nYou can also download a pre-filled direct deposit form from Online Banking under **Account Details -> Direct Deposit Form**.",
+    "metadata": {
+      "title": "How do I set up direct deposit?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-005",
+    "content": "Question: What are the daily transfer limits?\n\nAnswer:\n| Transfer Type | Default Daily Limit |\n|---|---|\n| Between own accounts | Unlimited |\n| ACH to external bank | $25,000 |\n| Same-day ACH | $10,000 |\n| Domestic wire | $500,000 (online) |\n| Zelle | $2,500/day, $10,000/month |\n| Bill Pay | $50,000/day |\n\nLimits may be temporarily reduced for new accounts or following suspicious activity. To request a higher limit, call 1-800-555-0100.",
+    "metadata": {
+      "title": "What are the daily transfer limits?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-transfers_payments-006",
+    "content": "Question: How do I pay my bills through the bank?\n\nAnswer:\nUse **Bill Pay** in Online Banking or the app:\n1. Go to **Pay Bills** -> **Add a Payee**.\n2. Enter the company name or search our database of 15,000+ payees.\n3. Enter your account number with the payee.\n4. Schedule a one-time or recurring payment.\n\n**Processing time:** Electronic payments post within 1-2 business days. Paper check payments (for payees not in our network) take 5-7 business days. Schedule payments at least 3 business days before the due date.",
+    "metadata": {
+      "title": "How do I pay my bills through the bank?",
+      "doc_type": "faq",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "faq-loans_mortgages-001",
+    "content": "Question: What types of loans do you offer?\n\nAnswer:\nWe offer the following personal and home loan products:\n\n**Personal Loans**\n- Unsecured personal loans: $1,000-$50,000, 6-60 months, APR 7.99%-24.99%\n- Debt consolidation loans: Same terms, with direct payoff option\n\n**Auto Loans**\n- New vehicle: APR from 5.49%, up to 84 months\n- Used vehicle (up to 7 years old): APR from 6.49%, up to 72 months\n- Refinancing available\n\n**Home Loans**\n- 30-year fixed mortgage\n- 15-year fixed mortgage\n- 5/1 and 7/1 ARM (Adjustable Rate Mortgage)\n- FHA, VA, and USDA loans\n- Home Equity Line of Credit (HELOC): Up to 85% LTV",
+    "metadata": {
+      "title": "What types of loans do you offer?",
+      "doc_type": "faq",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "faq-loans_mortgages-002",
+    "content": "Question: How do I apply for a personal loan?\n\nAnswer:\nTo apply for a personal loan:\n1. **Check your rate** with no credit score impact - log in to Online Banking -> Loans -> Check My Rate.\n2. If you accept the offer, complete the full application (takes ~10 minutes).\n3. Provide income verification (pay stubs, W-2, or tax returns).\n4. Funds are deposited to your account within 1-2 business days after approval.\n\nEligibility requirements: minimum credit score of 660, debt-to-income ratio below 40%, and verifiable income.",
+    "metadata": {
+      "title": "How do I apply for a personal loan?",
+      "doc_type": "faq",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "faq-loans_mortgages-003",
+    "content": "Question: How is my loan interest rate determined?\n\nAnswer:\nYour interest rate is determined by:\n- **Credit score** - higher scores qualify for lower rates\n- **Loan term** - shorter terms typically have lower rates\n- **Debt-to-income (DTI) ratio** - lower DTI improves your rate\n- **Loan amount** - larger loans may qualify for better rates\n- **Relationship discount** - existing customers with direct deposit may qualify for a 0.25% rate reduction\n\nRates are locked at approval and do not change over the life of a fixed-rate loan.",
+    "metadata": {
+      "title": "How is my loan interest rate determined?",
+      "doc_type": "faq",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "faq-loans_mortgages-004",
+    "content": "Question: Can I pay off my loan early?\n\nAnswer:\nYes. We do not charge prepayment penalties on personal loans or auto loans. You can make extra payments or pay off the full balance at any time at no cost.\n\nTo make an extra payment:\n- Online Banking: Loans -> Select Loan -> Make a Payment -> Additional Principal\n- Phone: Call 1-800-555-0300\n\nPaying extra toward principal reduces your total interest paid and may shorten your loan term.",
+    "metadata": {
+      "title": "Can I pay off my loan early?",
+      "doc_type": "faq",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "faq-loans_mortgages-005",
+    "content": "Question: What is a HELOC and how does it work?\n\nAnswer:\nA **Home Equity Line of Credit (HELOC)** lets you borrow against the equity in your home - the difference between your home's market value and your outstanding mortgage balance.\n\n**Key features:**\n- Borrow up to 85% of your home's appraised value, minus your mortgage balance\n- Variable interest rate (currently Prime + 0.5% to Prime + 2.5%)\n- 10-year draw period: borrow and repay as needed\n- 20-year repayment period after draw period ends\n- Interest may be tax-deductible (consult a tax advisor)\n\n**Example:** Home value $400,000 - Mortgage balance $200,000 -> Maximum HELOC: $140,000 (85% of $400,000 = $340,000 minus $200,000).",
+    "metadata": {
+      "title": "What is a HELOC and how does it work?",
+      "doc_type": "faq",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "faq-digital_banking-001",
+    "content": "Question: How do I enroll in Online Banking?\n\nAnswer:\nTo enroll:\n1. Visit our website and click **Enroll in Online Banking**.\n2. Enter your account number and SSN (last 4 digits).\n3. Verify your identity via a one-time code sent to your phone or email.\n4. Create a username and password.\n\nEnrollment takes about 5 minutes. You'll have immediate access after setup.",
+    "metadata": {
+      "title": "How do I enroll in Online Banking?",
+      "doc_type": "faq",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "faq-digital_banking-002",
+    "content": "Question: I forgot my password. How do I reset it?\n\nAnswer:\nTo reset your password:\n1. Click **Forgot Password** on the login page.\n2. Enter your username and the email address on file.\n3. Check your email for a reset link (valid for 30 minutes).\n4. Click the link and create a new password.\n\nIf you no longer have access to the email on file, call 1-800-555-0100 to verify your identity and update your email.\n\n**Password requirements:** Minimum 10 characters, at least one uppercase letter, one number, and one special character.",
+    "metadata": {
+      "title": "I forgot my password. How do I reset it?",
+      "doc_type": "faq",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "faq-digital_banking-003",
+    "content": "Question: How do I set up two-factor authentication (2FA)?\n\nAnswer:\nTwo-factor authentication adds an extra layer of security:\n1. Log in -> Profile & Settings -> Security -> Two-Factor Authentication\n2. Choose your preferred method: SMS text, authenticator app (Google Authenticator, Authy), or email\n3. Follow the verification steps to activate\n\n2FA is required for wire transfers, password changes, and new payee additions. We strongly recommend enabling it for all logins.",
+    "metadata": {
+      "title": "How do I set up two-factor authentication (2FA)?",
+      "doc_type": "faq",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "faq-digital_banking-004",
+    "content": "Question: What features are available on the mobile app?\n\nAnswer:\nThe mobile app supports:\n- Account balances and transaction history\n- Mobile check deposit (up to $10,000/day, $25,000/month)\n- Transfers between accounts and to external banks\n- Zelle peer-to-peer payments\n- Bill Pay\n- Card management (freeze/unfreeze, dispute, activate)\n- Loan and mortgage account management\n- ATM/branch locator\n- Spending insights and budgeting tools\n- Document center (statements, tax forms)\n- Secure messaging with support\n\nAvailable on iOS 14+ and Android 10+.",
+    "metadata": {
+      "title": "What features are available on the mobile app?",
+      "doc_type": "faq",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "faq-digital_banking-005",
+    "content": "Question: How do I deposit a check using the mobile app?\n\nAnswer:\nTo use Mobile Check Deposit:\n1. Open the app -> Deposit -> Mobile Check Deposit\n2. Select the account to deposit into\n3. Enter the check amount\n4. Take a photo of the front and back of the check (endorse the back: sign and write \"For Mobile Deposit Only\")\n5. Submit and confirm\n\nFunds are typically available the next business day. Deposits submitted before 9 PM ET on business days may be available same day for eligible accounts. Keep the physical check for 14 days, then shred it.",
+    "metadata": {
+      "title": "How do I deposit a check using the mobile app?",
+      "doc_type": "faq",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "faq-security_fraud-001",
+    "content": "Question: How do I recognize and avoid phishing scams?\n\nAnswer:\nPhishing is a common fraud tactic. Our bank will **never**:\n- Ask for your full password, PIN, or OTP via phone, email, or text\n- Ask you to transfer funds to \"protect\" your account\n- Send you links to verify your account via unsolicited email or SMS\n\n**Red flags to watch for:**\n- Urgency or threats (\"Your account will be closed in 24 hours\")\n- Spoofed email addresses (e.g., support@firstbank-secure.com)\n- Links to unfamiliar websites\n- Requests for gift cards as payment\n\nIf you receive a suspicious message, do not click any links. Forward phishing emails to phishing@ourbank.com and call 1-800-555-0100.",
+    "metadata": {
+      "title": "How do I recognize and avoid phishing scams?",
+      "doc_type": "faq",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "faq-security_fraud-002",
+    "content": "Question: I think my account has been compromised. What should I do?\n\nAnswer:\nAct immediately if you suspect unauthorized access:\n1. **Change your password** via the app or online banking immediately.\n2. **Call fraud support** at 1-800-555-0199 (available 24/7).\n3. **Review recent transactions** and identify any unauthorized activity.\n4. **Freeze your debit/credit cards** via the app (Cards -> Freeze Card).\n5. **Enable 2FA** if not already active.\n\nOur fraud team will review your account, reverse unauthorized transactions, and issue new cards if needed. You are protected under our Zero Liability Policy for unauthorized electronic transactions reported promptly.",
+    "metadata": {
+      "title": "I think my account has been compromised. What should I do?",
+      "doc_type": "faq",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "faq-security_fraud-003",
+    "content": "Question: What is the bank's Zero Liability Policy?\n\nAnswer:\nUnder our Zero Liability Policy, you are not responsible for unauthorized transactions on your debit or credit card if:\n- You report the loss, theft, or unauthorized use promptly\n- You have not shared your PIN or password with the unauthorized user\n- Your account is in good standing\n\n**Debit cards:** Report within 2 business days for $0 liability. Reporting after 2 days but within 60 days limits liability to $50. After 60 days, you may be liable for more.\n\n**Credit cards:** $0 liability for all unauthorized charges under federal law, regardless of when reported.",
+    "metadata": {
+      "title": "What is the bank's Zero Liability Policy?",
+      "doc_type": "faq",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "faq-security_fraud-004",
+    "content": "Question: How does the bank protect my data and accounts?\n\nAnswer:\nWe use multiple layers of security:\n- **256-bit SSL encryption** for all online and mobile transactions\n- **Multi-factor authentication** for logins and high-risk actions\n- **Real-time fraud monitoring** - AI-powered detection flags unusual activity 24/7\n- **Biometric authentication** - fingerprint and Face ID on mobile app\n- **Session timeout** - automatic logout after 10 minutes of inactivity\n- **Card tokenization** - your card number is never stored on merchants' servers when using Apple Pay or Google Pay\n\nWe are FDIC-insured up to $250,000 per depositor, per ownership category.",
+    "metadata": {
+      "title": "How does the bank protect my data and accounts?",
+      "doc_type": "faq",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "faq-fees_interest-001",
+    "content": "Question: What are the monthly maintenance fees for accounts?\n\nAnswer:\n| Account Type | Monthly Fee | How to Waive |\n|---|---|---|\n| Essential Checking | $12 | $500 minimum daily balance OR $500/month in direct deposits |\n| Premier Checking | $25 | $10,000 combined balance OR $5,000/month in deposits |\n| Basic Savings | $5 | $300 minimum daily balance |\n| High-Yield Savings | $0 | No waiver needed |\n| Student Checking | $0 | Valid student status (under age 24) |",
+    "metadata": {
+      "title": "What are the monthly maintenance fees for accounts?",
+      "doc_type": "faq",
+      "product_area": "fees_interest",
+      "priority": "P3",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Fees & Interest",
+      "topic_description": "Maintenance fees, overdraft, and APY rates."
+    }
+  },
+  {
+    "id": "faq-fees_interest-002",
+    "content": "Question: What are the overdraft fees and policies?\n\nAnswer:\n- **Overdraft fee:** $35 per item (maximum 3 per day = $105/day)\n- **Overdraft protection transfer fee:** $12 per transfer from a linked savings account\n- **Extended overdraft fee:** $7/day if account remains negative for more than 5 consecutive days\n\n**Ways to avoid overdraft fees:**\n- Link a savings account for automatic overdraft transfers\n- Enroll in Overdraft Grace - no fee if you bring the account positive by midnight the same day\n- Set up low balance alerts in the mobile app\n\nStandard overdraft coverage is automatically applied to checks and ACH. For debit card transactions, you must opt in to overdraft coverage.",
+    "metadata": {
+      "title": "What are the overdraft fees and policies?",
+      "doc_type": "faq",
+      "product_area": "fees_interest",
+      "priority": "P3",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Fees & Interest",
+      "topic_description": "Maintenance fees, overdraft, and APY rates."
+    }
+  },
+  {
+    "id": "faq-fees_interest-003",
+    "content": "Question: What is the current interest rate on savings accounts?\n\nAnswer:\n| Account | APY |\n|---|---|\n| Basic Savings | 0.50% |\n| High-Yield Savings | 4.25% (as of June 2025) |\n| Money Market | 3.75% (tiered, $10,000+ balance) |\n| 12-Month CD | 4.80% |\n| 24-Month CD | 4.50% |\n| 36-Month CD | 4.30% |\n\nRates are variable (except CDs, which are fixed at opening) and subject to change. The High-Yield Savings rate is reviewed monthly and adjusted based on the Federal Funds Rate.",
+    "metadata": {
+      "title": "What is the current interest rate on savings accounts?",
+      "doc_type": "faq",
+      "product_area": "fees_interest",
+      "priority": "P3",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "Fees & Interest",
+      "topic_description": "Maintenance fees, overdraft, and APY rates."
+    }
+  },
+  {
+    "id": "faq-atm_branch-001",
+    "content": "Question: How do I find a fee-free ATM?\n\nAnswer:\nWe have over 40,000 fee-free ATMs nationwide. To find one:\n- **Mobile App:** Tap the menu -> ATM/Branch Locator -> Filter by \"Fee-Free\"\n- **Website:** Visit ourbank.com/atm-locator\n- **Text:** Text \"ATM\" and your zip code to 55501\n\nWe are also part of the Allpoint and MoneyPass ATM networks. Using ATMs outside our network incurs a $3 fee from us plus any fee charged by the ATM owner.",
+    "metadata": {
+      "title": "How do I find a fee-free ATM?",
+      "doc_type": "faq",
+      "product_area": "atm_branch",
+      "priority": "P3",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "ATM & Branch Services",
+      "topic_description": "Fee-free ATMs and branch services."
+    }
+  },
+  {
+    "id": "faq-atm_branch-002",
+    "content": "Question: What services are available at a branch?\n\nAnswer:\nBranch services include:\n- Account opening and closing\n- Notary services\n- Safe deposit box rental ($40-$150/year depending on size)\n- Medallion signature guarantee\n- Cashier's checks ($10 per check)\n- Foreign currency exchange (23 currencies available, no fee for amounts over $500)\n- Financial advisor consultations (by appointment)\n- Mortgage and loan applications\n\nBranch hours are typically Mon-Fri 9 AM-5 PM, Sat 9 AM-1 PM. Select branches offer extended hours. Use the Branch Locator in the app for specific hours.",
+    "metadata": {
+      "title": "What services are available at a branch?",
+      "doc_type": "faq",
+      "product_area": "atm_branch",
+      "priority": "P3",
+      "platform": "branch",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "banking_support_kb.md",
+      "topic_section": "ATM & Branch Services",
+      "topic_description": "Fee-free ATMs and branch services."
+    }
+  },
+  {
+    "id": "manual-digital-banking-001",
+    "content": "Mobile Check Deposit Operations Guide\n\nUse this guide when a customer asks why a mobile check deposit is delayed, rejected, or unavailable.\n\nEligibility:\n- Account must be open at least 30 days.\n- Account must be in good standing with no active fraud restriction.\n- Mobile app version must be current or no more than two versions behind.\n\nDeposit limits:\n- Standard customers: $5,000 per day and $10,000 per month.\n- Premier customers: $10,000 per day and $25,000 per month.\n- New accounts may have lower limits for the first 60 days.\n\nCommon rejection reasons:\n- Missing endorsement or missing \"For Mobile Deposit Only\" text.\n- Blurry image, folded check, glare, or cropped corners.\n- Duplicate deposit attempt.\n- Check date older than 180 days or post-dated.\n\nSupport action:\nIf the customer has a rejected deposit, ask them to retake clear images and confirm endorsement. If the app shows duplicate deposit or risk review, escalate to Deposit Operations.",
+    "metadata": {
+      "title": "Mobile Check Deposit Operations Guide",
+      "doc_type": "product_manual",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "manual-transfers-payments-001",
+    "content": "External ACH Transfer Verification Guide\n\nCustomers must verify an external bank account before using standard ACH transfers.\n\nVerification methods:\n- Instant verification through secure bank login when available.\n- Micro-deposit verification when instant verification is unavailable.\n\nMicro-deposit timing:\n- Deposits usually arrive in 1-2 business days.\n- Customer must enter the two deposit amounts within 10 calendar days.\n- Three incorrect attempts lock the external account verification flow.\n\nSupport action:\nIf micro-deposits have not arrived after 3 business days, confirm the routing and account number were entered correctly. If the destination bank rejected the deposits, ask the customer to re-add the external account. If the customer is locked out after failed attempts, escalate to Digital Banking Support.",
+    "metadata": {
+      "title": "External ACH Transfer Verification Guide",
+      "doc_type": "product_manual",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "manual-cards-001",
+    "content": "Card Controls and Travel Notice Guide\n\nCustomers can manage card controls in the mobile app under Cards.\n\nAvailable controls:\n- Freeze or unfreeze card instantly.\n- Enable or disable online purchases.\n- Enable or disable international transactions.\n- Set transaction alerts by amount.\n- Set travel notices for domestic or international trips.\n\nTravel notices:\nTravel notices reduce false-positive fraud declines but do not guarantee approval. The fraud system may still block high-risk purchases.\n\nSupport action:\nIf a card is declined while traveling, confirm the card is active, not frozen, travel notice is set, and international transactions are enabled. If fraud block is suspected, escalate to Card Fraud Support.",
+    "metadata": {
+      "title": "Card Controls and Travel Notice Guide",
+      "doc_type": "product_manual",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "manual-security-fraud-001",
+    "content": "Account Takeover Escalation Runbook\n\nUse this runbook when a customer reports unauthorized login, changed contact information, unknown transfers, or loss of account access.\n\nImmediate steps:\n1. Do not reveal account details until identity is verified.\n2. Instruct the customer to stop using any suspicious links or phone numbers.\n3. Lock online banking access if active takeover is suspected.\n4. Freeze cards if unauthorized card activity is reported.\n5. Create a fraud case and route to Fraud Operations.\n\nEscalation requirement:\nEscalate immediately if the customer reports unauthorized transfers, changed phone/email, new payees, wire activity, or Zelle activity. Do not provide final reimbursement promises; fraud specialists determine resolution after investigation.",
+    "metadata": {
+      "title": "Account Takeover Escalation Runbook",
+      "doc_type": "runbook",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "policy-fees-interest-001",
+    "content": "Overdraft Grace Policy\n\nOverdraft Grace allows eligible customers to avoid an overdraft fee if the account balance is brought positive by 11:59 PM local time on the same business day.\n\nEligibility:\n- Consumer checking accounts only.\n- Account must not be restricted or closed.\n- Grace does not apply to extended overdraft fees or returned item fees.\n\nSupport action:\nIf a customer claims they deposited funds before midnight and still received a fee, check transaction posting time. If posting appears eligible, escalate to Deposit Servicing for fee review.",
+    "metadata": {
+      "title": "Overdraft Grace Policy",
+      "doc_type": "policy",
+      "product_area": "fees_interest",
+      "priority": "P2",
+      "platform": "all",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Fees & Interest",
+      "topic_description": "Maintenance fees, overdraft, and APY rates."
+    }
+  },
+  {
+    "id": "policy-transfers-payments-001",
+    "content": "Wire Transfer Cutoff and Recall Policy\n\nDomestic wires submitted before 4 PM ET on business days are usually sent the same day. International wires may require additional review and can take 1-3 business days.\n\nImportant policy points:\n- Wires are final once released.\n- Recall requests are best-effort and not guaranteed.\n- Wires above risk thresholds may require phone verification.\n- New payees require two-factor authentication.\n\nSupport action:\nIf a customer sent a wire to the wrong recipient or suspects fraud, escalate immediately to Wire Operations. Do not promise reversal or recovery.",
+    "metadata": {
+      "title": "Wire Transfer Cutoff and Recall Policy",
+      "doc_type": "policy",
+      "product_area": "transfers_payments",
+      "priority": "P1",
+      "platform": "web_mobile",
+      "customer_tier": "all",
+      "status": "active",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "ticket-cards-1001",
+    "content": "Past Ticket CARD-1001\n\nCustomer issue: Premier customer traveling in Spain reported repeated debit card declines at restaurants even though the account had sufficient funds.\n\nInvestigation: Card was active and not frozen. International transactions were disabled in card controls. No confirmed fraud was found.\n\nResolution: Agent guided customer to enable international transactions in the mobile app and added a travel notice. Customer retried purchase successfully.\n\nTakeaway: For travel declines, check card activation, frozen status, travel notice, international transaction setting, and fraud block status before replacing the card.",
+    "metadata": {
+      "title": "Resolved ticket: Card declined while traveling internationally",
+      "doc_type": "past_ticket",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "phone",
+      "customer_tier": "premier",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "ticket-digital-banking-1002",
+    "content": "Past Ticket MOB-1002\n\nCustomer issue: Customer said mobile check deposit was rejected twice with a generic image error.\n\nInvestigation: Deposit image was readable, but the endorsement did not include \"For Mobile Deposit Only\" as required.\n\nResolution: Agent explained endorsement requirements. Customer signed the back of the check, added the required phrase, retook photos, and deposit was accepted.\n\nTakeaway: When mobile deposit fails, check endorsement, duplicate deposit status, image quality, check age, and account eligibility.",
+    "metadata": {
+      "title": "Resolved ticket: Mobile deposit rejected for missing endorsement",
+      "doc_type": "past_ticket",
+      "product_area": "digital_banking",
+      "priority": "P2",
+      "platform": "mobile",
+      "customer_tier": "standard",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Online & Mobile Banking",
+      "topic_description": "Enrollment, 2FA, mobile deposit, and app features."
+    }
+  },
+  {
+    "id": "ticket-transfers-payments-1003",
+    "content": "Past Ticket ACH-1003\n\nCustomer issue: Customer tried to link an external bank account and did not see micro-deposits after two business days.\n\nInvestigation: Routing number was valid, but the customer entered a savings account number from a closed account at the external bank.\n\nResolution: Agent asked customer to remove the pending external account and add the correct active account number. New micro-deposits arrived the next business day.\n\nTakeaway: If micro-deposits do not arrive after expected timing, verify routing/account details and external account status before escalating.",
+    "metadata": {
+      "title": "Resolved ticket: ACH micro-deposits did not arrive",
+      "doc_type": "past_ticket",
+      "product_area": "transfers_payments",
+      "priority": "P2",
+      "platform": "web",
+      "customer_tier": "standard",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  },
+  {
+    "id": "ticket-security-fraud-1004",
+    "content": "Past Ticket FRD-1004\n\nCustomer issue: Customer received a text claiming the account would be closed, clicked the link, and entered online banking credentials.\n\nInvestigation: Recent login from a new device was detected. No completed transfers yet, but a new payee had been added.\n\nResolution: Agent locked online banking, instructed customer to change password through the official website only, froze cards, and escalated to Fraud Operations.\n\nTakeaway: Phishing with credential entry requires immediate account takeover escalation. Do not rely on normal password reset alone.",
+    "metadata": {
+      "title": "Escalated ticket: Customer clicked phishing text link",
+      "doc_type": "past_ticket",
+      "product_area": "security_fraud",
+      "priority": "P0",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "escalated",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Security & Fraud",
+      "topic_description": "Phishing, Zero Liability Policy, and account compromise."
+    }
+  },
+  {
+    "id": "ticket-fees-interest-1005",
+    "content": "Past Ticket FEE-1005\n\nCustomer issue: Customer received a $35 overdraft fee but said they deposited cash the same day.\n\nInvestigation: Account was negative after an ACH posted at 9 AM. Cash deposit posted at 4 PM the same business day and brought the account positive.\n\nResolution: Agent submitted fee review under Overdraft Grace. Fee was reversed because the balance was positive before the same-day deadline.\n\nTakeaway: For overdraft fee disputes, check posting dates, same-day positive balance, account eligibility, and whether the fee type qualifies for grace.",
+    "metadata": {
+      "title": "Resolved ticket: Overdraft fee charged after same-day cash deposit",
+      "doc_type": "past_ticket",
+      "product_area": "fees_interest",
+      "priority": "P2",
+      "platform": "branch",
+      "customer_tier": "standard",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Fees & Interest",
+      "topic_description": "Maintenance fees, overdraft, and APY rates."
+    }
+  },
+  {
+    "id": "ticket-loans-mortgages-1006",
+    "content": "Past Ticket LOAN-1006\n\nCustomer issue: Customer wanted to pay off a personal loan early and was worried about a prepayment penalty.\n\nInvestigation: Loan type was an unsecured personal loan. Policy shows no prepayment penalties for personal or auto loans.\n\nResolution: Agent explained the payoff quote includes principal plus accrued interest through the payoff date, but no penalty. Customer completed payoff online.\n\nTakeaway: Distinguish payoff interest from prepayment penalty. Personal and auto loans can be paid off early with no penalty.",
+    "metadata": {
+      "title": "Resolved ticket: Personal loan payoff quote confusion",
+      "doc_type": "past_ticket",
+      "product_area": "loans_mortgages",
+      "priority": "P3",
+      "platform": "web",
+      "customer_tier": "all",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Loans & Mortgages",
+      "topic_description": "Personal loans, HELOC, auto loans, and rate factors."
+    }
+  },
+  {
+    "id": "ticket-account-management-1007",
+    "content": "Past Ticket ACCT-1007\n\nCustomer issue: Customer could log in but could not transfer funds. Online banking showed account restricted.\n\nInvestigation: Restriction was placed after multiple failed identity verification attempts and a recent address change.\n\nResolution: Agent did not remove the restriction by phone. Customer was directed to visit a branch with valid photo ID and proof of address.\n\nTakeaway: Identity verification restrictions should not be bypassed through normal support. Escalate or route to branch verification when KYC review is required.",
+    "metadata": {
+      "title": "Escalated ticket: Account restricted after failed identity verification",
+      "doc_type": "past_ticket",
+      "product_area": "account_management",
+      "priority": "P1",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "escalated",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Account Management",
+      "topic_description": "Opening, closing, freezing, and updating account information."
+    }
+  },
+  {
+    "id": "ticket-atm-branch-1008",
+    "content": "Past Ticket ATM-1008\n\nCustomer issue: Customer was charged a $3 out-of-network ATM fee even though they believed the ATM was fee-free.\n\nInvestigation: ATM was in the same retail location as an Allpoint ATM, but the customer used a different machine not listed in the locator.\n\nResolution: Agent explained how to filter by fee-free ATMs in the app. One-time courtesy refund was approved.\n\nTakeaway: Confirm the exact ATM terminal or locator result before promising fee reimbursement.",
+    "metadata": {
+      "title": "Resolved ticket: ATM fee charged at partner network ATM",
+      "doc_type": "past_ticket",
+      "product_area": "atm_branch",
+      "priority": "P3",
+      "platform": "mobile",
+      "customer_tier": "all",
+      "status": "resolved",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "ATM & Branch Services",
+      "topic_description": "Fee-free ATMs and branch services."
+    }
+  },
+  {
+    "id": "ticket-cards-1009",
+    "content": "Past Ticket CARD-1009\n\nCustomer issue: Customer reported a lost card and requested replacement shipment to a new address.\n\nInvestigation: New address was not on profile and account had a recent failed login alert.\n\nResolution: Agent blocked the lost card immediately but did not ship the replacement to the new address. Case was escalated for identity verification.\n\nTakeaway: Lost card replacement to a new or unverified address is a fraud risk. Block the card first, then verify identity before shipping.",
+    "metadata": {
+      "title": "Escalated ticket: Lost card replacement blocked by address mismatch",
+      "doc_type": "past_ticket",
+      "product_area": "cards",
+      "priority": "P1",
+      "platform": "phone",
+      "customer_tier": "all",
+      "status": "escalated",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Debit & Credit Cards",
+      "topic_description": "Activation, disputes, limits, and declined transactions."
+    }
+  },
+  {
+    "id": "ticket-transfers-payments-1010",
+    "content": "Past Ticket WIRE-1010\n\nCustomer issue: Business customer sent a domestic wire to the wrong recipient account and asked to reverse it.\n\nInvestigation: Wire had already been released before the customer called.\n\nResolution: Agent escalated to Wire Operations for a recall request and explained recovery is best-effort, not guaranteed.\n\nTakeaway: Wires are final once released. Wrong-recipient or suspected fraud wire cases must be escalated immediately without promising reversal.",
+    "metadata": {
+      "title": "Escalated ticket: Wire sent to wrong recipient",
+      "doc_type": "past_ticket",
+      "product_area": "transfers_payments",
+      "priority": "P1",
+      "platform": "phone",
+      "customer_tier": "business",
+      "status": "escalated",
+      "source": "synthetic_banking_support_expansion",
+      "topic_section": "Transfers & Payments",
+      "topic_description": "ACH, wires, Zelle, bill pay, and direct deposit."
+    }
+  }
+]

@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 1 setup and connection verification.
+Current state: Stage 1 simple RAG offline ingestion.
 
 ## Project One-Liner Draft
 
@@ -35,6 +35,7 @@ Required for Stage 1:
 ```bash
 support-bot --version
 support-bot check-connections
+support-bot ingest
 ```
 
 ## Planned Docs
@@ -52,7 +53,11 @@ support-bot check-connections
 - Added CLI placeholder, typed config loader, docs placeholders, tests, and `.gitignore`.
 - Created first checkpoint commit.
 
-### Stage 1: Setup and Connection Verification
+### Stage 1: Simple RAG
+
+Goal: build the complete simple RAG system before introducing hybrid retrieval.
+
+#### Stage 1A: Setup and Connection Verification
 
 - Added OpenAI + Pinecone dependencies matching the Week 2 notebook direction.
 - Added `.env.example` entries for OpenAI, Pinecone, namespace, and embedding defaults.
@@ -60,4 +65,38 @@ support-bot check-connections
   - required environment variables are present
   - OpenAI embeddings are reachable
   - Pinecone index exists and is reachable
-- No ingestion, retrieval, generation, reranking, or RAG logic has been added yet.
+- No ingestion, retrieval, generation, reranking, or RAG logic was added in this sub-step.
+
+#### Stage 1B: Offline Ingestion
+
+- Added a structured banking support JSON knowledge base at `data/raw/banking_support_kb.json`.
+- Corpus includes FAQs, past tickets, product manuals, policies, and a fraud escalation runbook.
+- Each record uses course-style `content` + `metadata`, including `doc_type`, `product_area`, `topic_section`, and `topic_description`.
+- Added offline ingestion command:
+
+```bash
+support-bot ingest
+```
+
+- The command loads JSON records, preserves metadata, chunks documents with `RecursiveCharacterTextSplitter`, embeds with OpenAI, and writes chunks to Pinecone.
+- Default chunk settings follow the Week 2 notebook pattern:
+  - `CHUNK_SIZE=500`
+  - `CHUNK_OVERLAP=100`
+- By default, ingestion clears the target namespace first for reproducible runs. Use `--append` to upsert without clearing.
+- Verified live ingestion result:
+  - `source_documents=53`
+  - `chunks=100`
+  - `namespace=customer-support-simple-rag`
+- Confirmed the Pinecone portal shows loaded chunk records with text and metadata; raw vectors are stored but not normally displayed in the portal.
+
+#### Stage 1C: Online Retrieval and Generation
+
+Planned next: retrieve chunks from Pinecone, optionally rerank the simple semantic results, and generate grounded support answers.
+
+### Stage 2: Hybrid RAG
+
+Planned next stage after simple RAG works end to end: add BM25 keyword retrieval and a user-selectable simple vs. hybrid retrieval mode.
+
+### Stage 3: Fallback and Evaluation
+
+Planned final stage: add confidence-based human escalation and measure first-contact resolution rate across the 20-query evaluation set.

@@ -22,6 +22,8 @@ def test_load_config_returns_defaults(monkeypatch):
         pinecone_namespace="customer-support-simple-rag",
         embedding_model="text-embedding-3-small",
         embedding_dimensions=512,
+        chunk_size=500,
+        chunk_overlap=100,
     )
 
 
