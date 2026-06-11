@@ -48,11 +48,27 @@ def load_knowledge_base(path: Path) -> list[Document]:
     """Load the project JSON knowledge base into LangChain documents."""
 
     raw_records = json.loads(path.read_text(encoding="utf-8"))
+    return records_to_documents(raw_records)
+
+
+def parse_records_json(raw_json: str) -> list[dict[str, Any]]:
+    """Parse pasted JSON as either one record object or a list of records."""
+
+    raw_records = json.loads(raw_json)
+    if isinstance(raw_records, dict):
+        raw_records = [raw_records]
     if not isinstance(raw_records, list):
         raise ValueError("Knowledge base JSON must contain a list of records.")
+    return raw_records
+
+
+def records_to_documents(raw_records: list[dict[str, Any]]) -> list[Document]:
+    """Convert validated knowledge-base records into LangChain documents."""
 
     documents = []
     for index, record in enumerate(raw_records):
+        if not isinstance(record, dict):
+            raise ValueError(f"Record {index} must be a JSON object.")
         _validate_record(record, index)
         metadata = dict(record["metadata"])
         metadata["record_id"] = record["id"]
@@ -63,4 +79,3 @@ def load_knowledge_base(path: Path) -> list[Document]:
             )
         )
     return documents
-

@@ -11,7 +11,7 @@ from pinecone import Pinecone
 from pinecone.exceptions import NotFoundException
 
 from customer_support_bot.config import AppConfig
-from customer_support_bot.documents import load_knowledge_base
+from customer_support_bot.documents import load_knowledge_base, parse_records_json, records_to_documents
 
 
 @dataclass(frozen=True)
@@ -63,6 +63,52 @@ def ingest_knowledge_base(
 ) -> IngestionResult:
     """Load, chunk, embed, and write the knowledge base to Pinecone."""
 
+    documents = load_knowledge_base(source_path)
+    return ingest_documents(
+        config,
+        documents,
+        source_path=source_path,
+        namespace=namespace,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        reset_namespace=reset_namespace,
+    )
+
+
+def ingest_json_text(
+    config: AppConfig,
+    raw_json: str,
+    *,
+    namespace: str | None = None,
+    chunk_size: int | None = None,
+    chunk_overlap: int | None = None,
+) -> IngestionResult:
+    """Append pasted JSON records to Pinecone without clearing the namespace."""
+
+    documents = records_to_documents(parse_records_json(raw_json))
+    return ingest_documents(
+        config,
+        documents,
+        source_path=Path("pasted-json"),
+        namespace=namespace,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        reset_namespace=False,
+    )
+
+
+def ingest_documents(
+    config: AppConfig,
+    documents: list[Document],
+    *,
+    source_path: Path,
+    namespace: str | None = None,
+    chunk_size: int | None = None,
+    chunk_overlap: int | None = None,
+    reset_namespace: bool = True,
+) -> IngestionResult:
+    """Chunk, embed, and write already-loaded documents to Pinecone."""
+
     missing = config.missing_connection_settings()
     if missing:
         raise ValueError(f"Missing required settings: {', '.join(missing)}")
@@ -71,7 +117,6 @@ def ingest_knowledge_base(
     active_chunk_size = chunk_size or config.chunk_size
     active_chunk_overlap = chunk_overlap or config.chunk_overlap
 
-    documents = load_knowledge_base(source_path)
     chunks = chunk_documents(
         documents,
         chunk_size=active_chunk_size,

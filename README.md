@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 1 simple RAG online retrieval and generation.
+Current state: Stage 1D Streamlit UI for simple RAG.
 
 ## Project One-Liner Draft
 
@@ -37,6 +37,7 @@ support-bot --version
 support-bot check-connections
 support-bot ingest
 support-bot ask "How do I dispute a charge on my card?"
+streamlit run src/customer_support_bot/ui.py
 ```
 
 ## Planned Docs
@@ -106,6 +107,19 @@ support-bot ask "How do I dispute a charge on my card?"
 - Verified live query:
   - `support-bot ask "How do I dispute a charge on my card?"`
   - returned a grounded answer with five source chunks from the banking support KB.
+
+#### Stage 1D: Streamlit UI
+
+Added a simple local Streamlit interface over the Stage 1 backend.
+
+```bash
+streamlit run src/customer_support_bot/ui.py
+```
+
+- Ingestion tab: accepts one pasted JSON record or a JSON list of records, then appends those chunks without clearing the namespace.
+- Chat tab: asks questions against the simple semantic RAG namespace and displays source chunks with original JSON `record_id`.
+- The UI intentionally supports only the current JSON schema for now; Markdown, CSV, PDF, and multi-format uploads are later enhancements.
+- Full rebuild/reset ingestion remains available through the CLI with `support-bot ingest`.
 
 ### Stage 2: Hybrid RAG
 
