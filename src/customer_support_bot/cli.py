@@ -126,6 +126,14 @@ def main() -> None:
             retrieval_mode=args.retrieval,
         )
         print(f"Retrieval mode: {result.retrieval_mode}")
+        print(f"Status: {result.confidence.status}")
+        print(
+            "Confidence: "
+            f"{result.confidence.score:.2f} "
+            f"(threshold={result.confidence.threshold:.2f}, "
+            f"sources={result.confidence.unique_source_count})"
+        )
+        print(f"Reason: {result.confidence.reason}")
         print()
         print(result.answer)
         print()

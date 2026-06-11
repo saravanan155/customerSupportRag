@@ -27,6 +27,8 @@ class AppConfig:
     hybrid_bm25_k: int = 3
     hybrid_semantic_weight: float = 0.5
     hybrid_bm25_weight: float = 0.5
+    confidence_threshold: float = 0.65
+    confidence_min_sources: int = 2
     chunk_size: int = 500
     chunk_overlap: int = 100
 
@@ -76,6 +78,8 @@ def load_config(load_env_file: bool = True) -> AppConfig:
         hybrid_bm25_k=_get_int("HYBRID_BM25_K", 3),
         hybrid_semantic_weight=_get_float("HYBRID_SEMANTIC_WEIGHT", 0.5),
         hybrid_bm25_weight=_get_float("HYBRID_BM25_WEIGHT", 0.5),
+        confidence_threshold=_get_float("CONFIDENCE_THRESHOLD", 0.65),
+        confidence_min_sources=_get_int("CONFIDENCE_MIN_SOURCES", 2),
         chunk_size=_get_int("CHUNK_SIZE", 500),
         chunk_overlap=_get_int("CHUNK_OVERLAP", 100),
     )

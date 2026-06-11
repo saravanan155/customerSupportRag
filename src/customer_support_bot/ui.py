@@ -1,4 +1,4 @@
-"""Streamlit UI for the Stage 1 simple RAG system."""
+"""Streamlit UI for the customer support RAG system."""
 
 import streamlit as st
 
@@ -104,7 +104,7 @@ def render_ingestion_tab() -> None:
 
 def render_chat_tab() -> None:
     st.subheader("Chat")
-    st.caption("Ask questions against the simple semantic RAG index.")
+    st.caption("Ask questions against the support RAG index.")
 
     config = load_config()
     namespace = st.text_input(
@@ -151,6 +151,20 @@ def render_chat_tab() -> None:
                     retrieval_mode=retrieval_mode,
                 )
             st.caption(f"Retrieval mode: `{result.retrieval_mode}`")
+            if result.confidence.status == "answered":
+                st.success(
+                    f"Answered with confidence {result.confidence.score:.2f} "
+                    f"(threshold {result.confidence.threshold:.2f})"
+                )
+            else:
+                st.warning(
+                    f"Escalated with confidence {result.confidence.score:.2f} "
+                    f"(threshold {result.confidence.threshold:.2f})"
+                )
+            st.caption(
+                f"Confidence reason: {result.confidence.reason} "
+                f"| Distinct sources: {result.confidence.unique_source_count}"
+            )
             st.markdown("#### Answer")
             st.write(result.answer)
 
@@ -176,7 +190,7 @@ def render_chat_tab() -> None:
 def main() -> None:
     st.set_page_config(page_title="Customer Support RAG", layout="wide")
     st.title("Customer Support RAG")
-    st.caption("Stage 1 simple RAG: ingestion, semantic retrieval, and grounded answers.")
+    st.caption("Hybrid retrieval with confidence-based fallback.")
 
     render_sidebar()
     ingestion_tab, chat_tab = st.tabs(["Ingestion", "Chat"])

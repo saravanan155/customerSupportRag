@@ -16,6 +16,8 @@ def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("HYBRID_BM25_K", raising=False)
     monkeypatch.delenv("HYBRID_SEMANTIC_WEIGHT", raising=False)
     monkeypatch.delenv("HYBRID_BM25_WEIGHT", raising=False)
+    monkeypatch.delenv("CONFIDENCE_THRESHOLD", raising=False)
+    monkeypatch.delenv("CONFIDENCE_MIN_SOURCES", raising=False)
 
     config = load_config(load_env_file=False)
 
@@ -34,6 +36,8 @@ def test_load_config_returns_defaults(monkeypatch):
         hybrid_bm25_k=3,
         hybrid_semantic_weight=0.5,
         hybrid_bm25_weight=0.5,
+        confidence_threshold=0.65,
+        confidence_min_sources=2,
         chunk_size=500,
         chunk_overlap=100,
     )

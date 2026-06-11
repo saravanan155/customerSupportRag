@@ -1,5 +1,6 @@
 """Simple semantic RAG retrieval and generation."""
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
@@ -30,6 +31,32 @@ Support guidance:"""
 
 RAG_PROMPT = PromptTemplate.from_template(RAG_TEMPLATE)
 
+CONFIDENCE_TEMPLATE = """You are checking whether a customer-support answer can be safely generated from retrieved internal knowledge-base context.
+
+Return only valid JSON with this schema:
+{{
+  "answerable": true or false,
+  "confidence": number between 0 and 1 showing how confident you are that the context is sufficient to answer,
+  "reason": "short reason"
+}}
+
+Mark answerable as false when the context is missing the specific policy, procedure, limit, timing, or escalation path needed for the customer issue.
+Mark answerable as false when the customer asks for personal account data, transaction changes, approvals, legal advice, or anything that requires a human support agent.
+
+Context:
+{context}
+
+Customer issue: {question}
+
+JSON assessment:"""
+
+CONFIDENCE_PROMPT = PromptTemplate.from_template(CONFIDENCE_TEMPLATE)
+
+ESCALATION_ANSWER = (
+    "I am not confident I have enough information from the knowledge base to answer "
+    "this safely. I am escalating this to a human support agent."
+)
+
 
 @dataclass(frozen=True)
 class SourceChunk:
@@ -45,6 +72,19 @@ class SourceChunk:
 
 
 @dataclass(frozen=True)
+class ConfidenceAssessment:
+    """Decision used to answer or escalate instead of hallucinating."""
+
+    status: str
+    score: float
+    reason: str
+    answerable: bool
+    unique_source_count: int
+    threshold: float
+    min_sources: int
+
+
+@dataclass(frozen=True)
 class RagAnswer:
     """Generated answer plus the retrieved chunks used as context."""
 
@@ -52,9 +92,11 @@ class RagAnswer:
     answer: str
     sources: list[SourceChunk]
     retrieval_mode: str
+    confidence: ConfidenceAssessment
 
 
 RetrievalMode = Literal["simple", "hybrid"]
+AnswerStatus = Literal["answered", "escalated"]
 
 
 def format_context(documents: list[Document]) -> str:
@@ -94,6 +136,140 @@ def format_sources(sources: list[SourceChunk]) -> str:
             f"{source.product_area}{chunk_label}]"
         )
     return "\n".join(lines)
+
+
+def unique_source_count(documents: list[Document]) -> int:
+    """Count distinct source records represented by retrieved documents."""
+
+    record_ids = {
+        document.metadata.get("record_id")
+        for document in documents
+        if document.metadata.get("record_id")
+    }
+    return len(record_ids) if record_ids else len(documents)
+
+
+def parse_json_object(content: str) -> dict:
+    """Parse a JSON object, tolerating accidental markdown fences."""
+
+    stripped = content.strip()
+    if stripped.startswith("```"):
+        lines = stripped.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].startswith("```"):
+            lines = lines[:-1]
+        stripped = "\n".join(lines).strip()
+
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        stripped = stripped[start : end + 1]
+
+    parsed = json.loads(stripped)
+    if not isinstance(parsed, dict):
+        raise ValueError("Confidence assessment must be a JSON object.")
+    return parsed
+
+
+def coerce_bool(value: object) -> bool:
+    """Read strict JSON booleans and common string variants safely."""
+
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized == "true":
+            return True
+        if normalized == "false":
+            return False
+    return False
+
+
+def parse_confidence_response(
+    content: str,
+    *,
+    unique_sources: int,
+    threshold: float,
+    min_sources: int,
+) -> ConfidenceAssessment:
+    """Parse the LLM answerability JSON into a bounded confidence decision."""
+
+    try:
+        parsed = parse_json_object(content)
+        answerable = coerce_bool(parsed.get("answerable", False))
+        score = float(parsed.get("confidence", 0))
+        reason = str(parsed.get("reason", "No reason provided."))
+    except (TypeError, ValueError, json.JSONDecodeError) as exc:
+        return ConfidenceAssessment(
+            status="escalated",
+            score=0,
+            reason=f"Could not parse confidence assessment: {exc}",
+            answerable=False,
+            unique_source_count=unique_sources,
+            threshold=threshold,
+            min_sources=min_sources,
+        )
+
+    bounded_score = max(0, min(score, 1))
+    if not answerable:
+        bounded_score = 0
+    status: AnswerStatus = "answered"
+    if not answerable or bounded_score < threshold:
+        status = "escalated"
+
+    return ConfidenceAssessment(
+        status=status,
+        score=bounded_score,
+        reason=reason,
+        answerable=answerable,
+        unique_source_count=unique_sources,
+        threshold=threshold,
+        min_sources=min_sources,
+    )
+
+
+def assess_confidence(
+    config: AppConfig,
+    question: str,
+    documents: list[Document],
+) -> ConfidenceAssessment:
+    """Decide whether retrieved context is sufficient to answer safely."""
+
+    unique_sources = unique_source_count(documents)
+    if unique_sources < config.confidence_min_sources:
+        return ConfidenceAssessment(
+            status="escalated",
+            score=0,
+            reason=(
+                "Retrieved context did not include enough distinct source records "
+                "for a safe support answer."
+            ),
+            answerable=False,
+            unique_source_count=unique_sources,
+            threshold=config.confidence_threshold,
+            min_sources=config.confidence_min_sources,
+        )
+
+    prompt = CONFIDENCE_PROMPT.invoke(
+        {
+            "question": question,
+            "context": format_context(documents),
+        }
+    )
+    llm = ChatOpenAI(
+        model=config.chat_model,
+        api_key=config.openai_api_key,
+        temperature=0,
+    )
+    response = llm.invoke(prompt)
+
+    return parse_confidence_response(
+        str(response.content),
+        unique_sources=unique_sources,
+        threshold=config.confidence_threshold,
+        min_sources=config.confidence_min_sources,
+    )
 
 
 def build_vector_store(config: AppConfig, namespace: str | None = None) -> PineconeVectorStore:
@@ -193,6 +369,15 @@ def answer_question(
         k=k,
         retrieval_mode=retrieval_mode,
     )
+    confidence = assess_confidence(config, question, retrieved_docs)
+    if confidence.status == "escalated":
+        return RagAnswer(
+            question=question,
+            answer=ESCALATION_ANSWER,
+            sources=[source_from_document(document) for document in retrieved_docs],
+            retrieval_mode=retrieval_mode,
+            confidence=confidence,
+        )
 
     prompt = RAG_PROMPT.invoke(
         {
@@ -209,7 +394,8 @@ def answer_question(
 
     return RagAnswer(
         question=question,
-        answer=response.content,
+        answer=str(response.content),
         sources=[source_from_document(document) for document in retrieved_docs],
         retrieval_mode=retrieval_mode,
+        confidence=confidence,
     )

@@ -1,11 +1,15 @@
 from langchain_core.documents import Document
 
 from customer_support_bot.rag import (
+    CONFIDENCE_PROMPT,
     RAG_PROMPT,
     format_context,
     format_sources,
+    parse_json_object,
+    parse_confidence_response,
     retrieve_documents,
     source_from_document,
+    unique_source_count,
 )
 
 
@@ -91,6 +95,103 @@ def test_rag_prompt_includes_context_and_question():
     assert "Known policy text." in prompt_text
     assert "What is the policy?" in prompt_text
     assert "rather than guessing" in prompt_text
+
+
+def test_confidence_prompt_requests_json_assessment():
+    prompt = CONFIDENCE_PROMPT.invoke(
+        {
+            "context": "Known policy text.",
+            "question": "What is the policy?",
+        }
+    )
+
+    prompt_text = prompt.text
+    assert "Return only valid JSON" in prompt_text
+    assert "answerable" in prompt_text
+    assert "confidence" in prompt_text
+
+
+def test_unique_source_count_uses_distinct_record_ids():
+    documents = [
+        Document(page_content="Chunk A", metadata={"record_id": "faq-1"}),
+        Document(page_content="Chunk B", metadata={"record_id": "faq-1"}),
+        Document(page_content="Chunk C", metadata={"record_id": "manual-1"}),
+    ]
+
+    assert unique_source_count(documents) == 2
+
+
+def test_parse_confidence_response_returns_answered_status():
+    assessment = parse_confidence_response(
+        '{"answerable": true, "confidence": 0.82, "reason": "Enough policy context."}',
+        unique_sources=3,
+        threshold=0.65,
+        min_sources=2,
+    )
+
+    assert assessment.status == "answered"
+    assert assessment.answerable is True
+    assert assessment.score == 0.82
+    assert assessment.unique_source_count == 3
+
+
+def test_parse_confidence_response_handles_fenced_json():
+    assessment = parse_confidence_response(
+        '```json\n{"answerable": true, "confidence": 0.9, "reason": "Enough."}\n```',
+        unique_sources=2,
+        threshold=0.65,
+        min_sources=2,
+    )
+
+    assert assessment.status == "answered"
+    assert assessment.score == 0.9
+
+
+def test_parse_confidence_response_escalates_below_threshold():
+    assessment = parse_confidence_response(
+        '{"answerable": true, "confidence": 0.42, "reason": "Weak context."}',
+        unique_sources=2,
+        threshold=0.65,
+        min_sources=2,
+    )
+
+    assert assessment.status == "escalated"
+    assert assessment.score == 0.42
+
+
+def test_parse_confidence_response_treats_false_string_as_false():
+    assessment = parse_confidence_response(
+        '{"answerable": "false", "confidence": 0.95, "reason": "Needs account data."}',
+        unique_sources=2,
+        threshold=0.65,
+        min_sources=2,
+    )
+
+    assert assessment.status == "escalated"
+    assert assessment.answerable is False
+    assert assessment.score == 0
+
+
+def test_parse_confidence_response_escalates_on_invalid_json():
+    assessment = parse_confidence_response(
+        "not json",
+        unique_sources=2,
+        threshold=0.65,
+        min_sources=2,
+    )
+
+    assert assessment.status == "escalated"
+    assert assessment.score == 0
+    assert assessment.answerable is False
+
+
+def test_parse_json_object_rejects_non_object_json():
+    try:
+        parse_json_object("[1, 2, 3]")
+    except ValueError as exc:
+        assert "JSON object" in str(exc)
+    else:
+        raise AssertionError("Expected ValueError for non-object JSON.")
 
 
 def test_retrieve_documents_rejects_unknown_mode():

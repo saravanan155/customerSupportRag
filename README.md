@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 2B hybrid retrieval validation for the support RAG bot.
+Current state: Stage 3A confidence-based fallback for the support RAG bot.
 
 ## Project One-Liner Draft
 
@@ -38,6 +38,7 @@ support-bot check-connections
 support-bot ingest
 support-bot ask "How do I dispute a charge on my card?"
 support-bot ask "How do I dispute a charge on my card?" --retrieval hybrid
+support-bot ask "What is my account balance?" --retrieval hybrid
 streamlit run src/customer_support_bot/ui.py
 ```
 
@@ -145,4 +146,20 @@ support-bot ask "How long do ACH transfers take?" --retrieval hybrid
 
 ### Stage 3: Fallback and Evaluation
 
-Planned final stage: add confidence-based human escalation and measure first-contact resolution rate across the 20-query evaluation set.
+#### Stage 3A: Confidence-Based Fallback
+
+Added a context-sufficiency check before answer generation.
+
+- Retrieves sources using the selected simple or hybrid retrieval mode.
+- Counts distinct source records as a basic evidence signal.
+- Uses the chat model to assess whether the retrieved context is sufficient to answer safely.
+- Returns an escalation response instead of generating an answer when:
+  - fewer than `CONFIDENCE_MIN_SOURCES=2` distinct source records are retrieved
+  - the assessed confidence is below `CONFIDENCE_THRESHOLD=0.65`
+  - the question requires personal account data, transaction changes, approvals, legal advice, or human support action
+- CLI output now includes status, confidence score, threshold, source count, and reason.
+- Streamlit Chat tab shows answered vs escalated status above the response.
+
+#### Stage 3B: Resolution Metrics
+
+Planned next: run the 20-query evaluation set with fallback enabled and calculate first-contact resolution rate.
