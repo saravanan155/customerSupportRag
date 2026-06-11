@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*credentials*.json
+*secrets*.json
+*token*.json
+
+# Logs and local runtime files
+*.log
+logs/
+.DS_Store
+
+# Notebook/editor noise
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Generated data and local indexes
+data/processed/*
+!data/processed/.gitkeep
+data/indexes/
+chroma/
+.chroma/
+faiss_index/
+pinecone_cache/
