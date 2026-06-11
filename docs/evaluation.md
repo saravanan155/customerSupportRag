@@ -47,6 +47,8 @@ Results:
 - Answerable-query first-contact resolution rate: `15 / 15 = 100%`
 - Safe handling rate: `(15 correct answers + 5 correct escalations) / 20 = 100%`
 
+Detailed answer summaries, confidence reasons, and citations are documented in `docs/fallback_rag_test_results.md`.
+
 Interpretation:
 
 - The bot resolved all answerable KB questions at first contact.

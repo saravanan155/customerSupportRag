@@ -47,6 +47,7 @@ streamlit run src/customer_support_bot/ui.py
 - `docs/design.md`: RAG framework decisions.
 - `docs/simple_rag_test_results.md`: Stage 1 simple RAG showcase results.
 - `docs/hybrid_rag_test_results.md`: Stage 2 hybrid RAG showcase results.
+- `docs/fallback_rag_test_results.md`: detailed Stage 3 fallback showcase results.
 - `docs/evaluation.md`: Stage 3 confidence fallback results, resolution metrics, and failure notes.
 - `data/raw/`: source support documents.
 - `data/processed/`: cleaned/intermediate data artifacts.
@@ -169,4 +170,4 @@ Ran the 20-query evaluation set with hybrid retrieval and confidence fallback en
 - Overall bot-only first-contact resolution rate: `15 / 20 = 75%`.
 - Answerable-query first-contact resolution rate: `15 / 15 = 100%`.
 - Safe handling rate, counting correct answers and correct escalations: `20 / 20 = 100%`.
-- Full results are documented in `docs/evaluation.md`.
+- Full metrics are documented in `docs/evaluation.md`; detailed answer/citation results are documented in `docs/fallback_rag_test_results.md`.
