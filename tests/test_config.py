@@ -4,8 +4,35 @@ from customer_support_bot.config import AppConfig, load_config
 def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("APP_ENV", raising=False)
     monkeypatch.delenv("LOG_LEVEL", raising=False)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("PINECONE_API_KEY", raising=False)
+    monkeypatch.delenv("PINECONE_INDEX_NAME", raising=False)
+    monkeypatch.delenv("PINECONE_NAMESPACE", raising=False)
+    monkeypatch.delenv("EMBEDDING_MODEL", raising=False)
+    monkeypatch.delenv("EMBEDDING_DIMENSIONS", raising=False)
 
-    config = load_config()
+    config = load_config(load_env_file=False)
 
-    assert config == AppConfig(app_env="local", log_level="INFO")
+    assert config == AppConfig(
+        app_env="local",
+        log_level="INFO",
+        openai_api_key=None,
+        pinecone_api_key=None,
+        pinecone_index_name=None,
+        pinecone_namespace="customer-support-simple-rag",
+        embedding_model="text-embedding-3-small",
+        embedding_dimensions=512,
+    )
 
+
+def test_missing_connection_settings(monkeypatch):
+    monkeypatch.setenv("OPENAI_API_KEY", "test-openai-key")
+    monkeypatch.delenv("PINECONE_API_KEY", raising=False)
+    monkeypatch.delenv("PINECONE_INDEX_NAME", raising=False)
+
+    config = load_config(load_env_file=False)
+
+    assert config.missing_connection_settings() == [
+        "PINECONE_API_KEY",
+        "PINECONE_INDEX_NAME",
+    ]

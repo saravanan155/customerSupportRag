@@ -5,6 +5,9 @@ description = "Customer support bot project scaffold."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "langchain-openai>=1.2.2",
+    "langchain-pinecone>=0.2.13",
+    "pinecone>=7.3.0",
     "python-dotenv>=1.2.0",
 ]
 
@@ -23,4 +26,3 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-
