@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 2A hybrid retrieval for the support RAG bot.
+Current state: Stage 2B hybrid retrieval validation for the support RAG bot.
 
 ## Project One-Liner Draft
 
@@ -44,7 +44,9 @@ streamlit run src/customer_support_bot/ui.py
 ## Planned Docs
 
 - `docs/design.md`: RAG framework decisions.
-- `docs/evaluation.md`: 20-query test set, resolution metrics, and failure notes.
+- `docs/simple_rag_test_results.md`: Stage 1 simple RAG showcase results.
+- `docs/hybrid_rag_test_results.md`: Stage 2 hybrid RAG showcase results.
+- `docs/evaluation.md`: planned Stage 3 resolution metrics and failure notes.
 - `data/raw/`: source support documents.
 - `data/processed/`: cleaned/intermediate data artifacts.
 
@@ -139,6 +141,7 @@ support-bot ask "How long do ACH transfers take?" --retrieval hybrid
   - weights `[0.5, 0.5]`
 - Streamlit Chat tab uses a radio button to choose `simple` or `hybrid`.
 - BM25 is built from the source JSON records to match the notebook pattern, while Pinecone retrieves stored chunks. Because of that, hybrid citations may include both chunk-level citations and source-record-level citations.
+- Stage 2B validation is documented in `docs/hybrid_rag_test_results.md` using the same 20 support questions from the simple RAG showcase.
 
 ### Stage 3: Fallback and Evaluation
 
