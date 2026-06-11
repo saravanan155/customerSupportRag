@@ -23,6 +23,10 @@ class AppConfig:
     embedding_dimensions: int = 512
     chat_model: str = "gpt-4.1-mini"
     retrieval_top_k: int = 5
+    hybrid_semantic_k: int = 3
+    hybrid_bm25_k: int = 3
+    hybrid_semantic_weight: float = 0.5
+    hybrid_bm25_weight: float = 0.5
     chunk_size: int = 500
     chunk_overlap: int = 100
 
@@ -44,6 +48,13 @@ def _get_int(name: str, default: int) -> int:
     return int(raw_value)
 
 
+def _get_float(name: str, default: float) -> float:
+    raw_value = getenv(name)
+    if raw_value is None or raw_value == "":
+        return default
+    return float(raw_value)
+
+
 def load_config(load_env_file: bool = True) -> AppConfig:
     """Load local environment values into a typed config object."""
 
@@ -61,6 +72,10 @@ def load_config(load_env_file: bool = True) -> AppConfig:
         embedding_dimensions=_get_int("EMBEDDING_DIMENSIONS", 512),
         chat_model=getenv("CHAT_MODEL", "gpt-4.1-mini"),
         retrieval_top_k=_get_int("RETRIEVAL_TOP_K", 5),
+        hybrid_semantic_k=_get_int("HYBRID_SEMANTIC_K", 3),
+        hybrid_bm25_k=_get_int("HYBRID_BM25_K", 3),
+        hybrid_semantic_weight=_get_float("HYBRID_SEMANTIC_WEIGHT", 0.5),
+        hybrid_bm25_weight=_get_float("HYBRID_BM25_WEIGHT", 0.5),
         chunk_size=_get_int("CHUNK_SIZE", 500),
         chunk_overlap=_get_int("CHUNK_OVERLAP", 100),
     )

@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 1D Streamlit UI for simple RAG.
+Current state: Stage 2A hybrid retrieval for the support RAG bot.
 
 ## Project One-Liner Draft
 
@@ -37,6 +37,7 @@ support-bot --version
 support-bot check-connections
 support-bot ingest
 support-bot ask "How do I dispute a charge on my card?"
+support-bot ask "How do I dispute a charge on my card?" --retrieval hybrid
 streamlit run src/customer_support_bot/ui.py
 ```
 
@@ -123,7 +124,21 @@ streamlit run src/customer_support_bot/ui.py
 
 ### Stage 2: Hybrid RAG
 
-Planned next stage after simple RAG works end to end: add BM25 keyword retrieval and a user-selectable simple vs. hybrid retrieval mode.
+Added hybrid retrieval using the Week 2 hybrid RAG notebook pattern.
+
+```bash
+support-bot ask "How long do ACH transfers take?" --retrieval hybrid
+```
+
+- Simple mode keeps Pinecone semantic similarity retrieval.
+- Hybrid mode combines Pinecone semantic retrieval with BM25 keyword retrieval.
+- Fusion uses LangChain `EnsembleRetriever` with weighted RRF.
+- Defaults follow the training notebook:
+  - semantic `k=3`
+  - BM25 `k=3`
+  - weights `[0.5, 0.5]`
+- Streamlit Chat tab uses a radio button to choose `simple` or `hybrid`.
+- BM25 is built from the source JSON records to match the notebook pattern, while Pinecone retrieves stored chunks. Because of that, hybrid citations may include both chunk-level citations and source-record-level citations.
 
 ### Stage 3: Fallback and Evaluation
 

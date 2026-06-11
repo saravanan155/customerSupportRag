@@ -4,6 +4,7 @@ from customer_support_bot.rag import (
     RAG_PROMPT,
     format_context,
     format_sources,
+    retrieve_documents,
     source_from_document,
 )
 
@@ -90,3 +91,12 @@ def test_rag_prompt_includes_context_and_question():
     assert "Known policy text." in prompt_text
     assert "What is the policy?" in prompt_text
     assert "rather than guessing" in prompt_text
+
+
+def test_retrieve_documents_rejects_unknown_mode():
+    try:
+        retrieve_documents(None, "question", retrieval_mode="unknown")
+    except ValueError as exc:
+        assert "Unsupported retrieval mode" in str(exc)
+    else:
+        raise AssertionError("Expected ValueError for unknown retrieval mode.")

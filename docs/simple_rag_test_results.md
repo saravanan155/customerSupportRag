@@ -86,5 +86,5 @@ This paired comparison uses the same question with both retrieval depths. It hel
 
 ## Next Improvements
 
-- Stage 2: add hybrid retrieval with BM25 and compare simple vs. hybrid results.
+- Stage 2A has now added hybrid retrieval with BM25 plus semantic retrieval through weighted RRF fusion.
 - Stage 3: add confidence-based fallback and calculate first-contact resolution rate across the evaluation set.

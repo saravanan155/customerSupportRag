@@ -34,6 +34,7 @@ build/
 *.log
 logs/
 .DS_Store
+.streamlit/
 
 # Notebook/editor noise
 .ipynb_checkpoints/

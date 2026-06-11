@@ -112,12 +112,24 @@ def render_chat_tab() -> None:
         value=config.pinecone_namespace,
         key="chat_namespace",
     )
-    k = st.slider(
-        "Retrieved chunks",
-        min_value=1,
-        max_value=10,
-        value=config.retrieval_top_k,
+    retrieval_mode = st.radio(
+        "Retrieval mode",
+        options=["simple", "hybrid"],
+        horizontal=True,
+        help="Hybrid uses semantic search plus BM25 keyword search with RRF fusion.",
     )
+    k = None
+    if retrieval_mode == "simple":
+        k = st.slider(
+            "Retrieved chunks",
+            min_value=1,
+            max_value=10,
+            value=config.retrieval_top_k,
+        )
+    else:
+        st.caption(
+            "Hybrid defaults: semantic k=3, BM25 k=3, weights=[0.5, 0.5]."
+        )
 
     question = st.text_area(
         "Question",
@@ -136,7 +148,9 @@ def render_chat_tab() -> None:
                     question.strip(),
                     namespace=namespace,
                     k=k,
+                    retrieval_mode=retrieval_mode,
                 )
+            st.caption(f"Retrieval mode: `{result.retrieval_mode}`")
             st.markdown("#### Answer")
             st.write(result.answer)
 

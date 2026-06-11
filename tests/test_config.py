@@ -12,6 +12,10 @@ def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("EMBEDDING_DIMENSIONS", raising=False)
     monkeypatch.delenv("CHAT_MODEL", raising=False)
     monkeypatch.delenv("RETRIEVAL_TOP_K", raising=False)
+    monkeypatch.delenv("HYBRID_SEMANTIC_K", raising=False)
+    monkeypatch.delenv("HYBRID_BM25_K", raising=False)
+    monkeypatch.delenv("HYBRID_SEMANTIC_WEIGHT", raising=False)
+    monkeypatch.delenv("HYBRID_BM25_WEIGHT", raising=False)
 
     config = load_config(load_env_file=False)
 
@@ -26,6 +30,10 @@ def test_load_config_returns_defaults(monkeypatch):
         embedding_dimensions=512,
         chat_model="gpt-4.1-mini",
         retrieval_top_k=5,
+        hybrid_semantic_k=3,
+        hybrid_bm25_k=3,
+        hybrid_semantic_weight=0.5,
+        hybrid_bm25_weight=0.5,
         chunk_size=500,
         chunk_overlap=100,
     )

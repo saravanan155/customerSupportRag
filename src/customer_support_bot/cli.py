@@ -70,6 +70,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Number of chunks to retrieve. Defaults to RETRIEVAL_TOP_K.",
     )
+    ask_parser.add_argument(
+        "--retrieval",
+        choices=["simple", "hybrid"],
+        default="simple",
+        help="Retrieval mode. Hybrid uses semantic + BM25 fusion.",
+    )
     return parser
 
 
@@ -117,7 +123,10 @@ def main() -> None:
             args.question,
             namespace=args.namespace,
             k=args.k,
+            retrieval_mode=args.retrieval,
         )
+        print(f"Retrieval mode: {result.retrieval_mode}")
+        print()
         print(result.answer)
         print()
         print(format_sources(result.sources))
