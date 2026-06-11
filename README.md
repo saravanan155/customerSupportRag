@@ -4,6 +4,8 @@ This is the completed workspace for the Week 2 customer support knowledge-base p
 
 Current state: Stage 3C Nebius-backed confidence fallback for the support RAG bot.
 
+![Banking Support RAG Pipeline Overview](docs/images/Banking_Support_RAG_Pipeline_Overview.png)
+
 ## Project One-Liner Draft
 
 My app helps support agents or customers answer banking support questions from FAQs, past tickets, product manuals, policies, and runbooks in a CLI or Streamlit chat UI with grounded citations, confidence-based human escalation, 75% bot-only first-contact resolution, and 100% safe handling on the 20-query evaluation set.
@@ -67,6 +69,8 @@ streamlit run src/customer_support_bot/ui.py
 - Created first checkpoint commit.
 
 ### Stage 1: Simple RAG
+
+![Stage 1 Simple RAG System Architecture](docs/images/Simple_RAG_System_Architecture.png)
 
 Goal: build the complete simple RAG system before introducing hybrid retrieval.
 
@@ -134,6 +138,8 @@ streamlit run src/customer_support_bot/ui.py
 
 ### Stage 2: Hybrid RAG
 
+![Stage 2 Hybrid Retrieval Architecture](docs/images/Hybrid_Retrieval_Architecture_Stage_Two.png)
+
 Added hybrid retrieval using the Week 2 hybrid RAG notebook pattern.
 
 ```bash
@@ -152,6 +158,8 @@ support-bot ask "How long do ACH transfers take?" --retrieval hybrid
 - Stage 2B validation is documented in `docs/hybrid_rag_test_results.md` using the same 20 support questions from the simple RAG showcase.
 
 ### Stage 3: Fallback and Evaluation
+
+![Stage 3 Guardrail and Fallback Logic](docs/images/AI_Guardrail_Fallback_Logic_Overview.png)
 
 #### Stage 3A: Confidence-Based Fallback
 
