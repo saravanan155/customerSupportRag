@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 3A confidence-based fallback for the support RAG bot.
+Current state: Stage 3B fallback evaluation and resolution metrics for the support RAG bot.
 
 ## Project One-Liner Draft
 
@@ -47,7 +47,7 @@ streamlit run src/customer_support_bot/ui.py
 - `docs/design.md`: RAG framework decisions.
 - `docs/simple_rag_test_results.md`: Stage 1 simple RAG showcase results.
 - `docs/hybrid_rag_test_results.md`: Stage 2 hybrid RAG showcase results.
-- `docs/evaluation.md`: planned Stage 3 resolution metrics and failure notes.
+- `docs/evaluation.md`: Stage 3 confidence fallback results, resolution metrics, and failure notes.
 - `data/raw/`: source support documents.
 - `data/processed/`: cleaned/intermediate data artifacts.
 
@@ -162,4 +162,11 @@ Added a context-sufficiency check before answer generation.
 
 #### Stage 3B: Resolution Metrics
 
-Planned next: run the 20-query evaluation set with fallback enabled and calculate first-contact resolution rate.
+Ran the 20-query evaluation set with hybrid retrieval and confidence fallback enabled.
+
+- 15 answerable support questions were answered correctly.
+- 5 account-specific, action-taking, or advice requests were escalated safely.
+- Overall bot-only first-contact resolution rate: `15 / 20 = 75%`.
+- Answerable-query first-contact resolution rate: `15 / 15 = 100%`.
+- Safe handling rate, counting correct answers and correct escalations: `20 / 20 = 100%`.
+- Full results are documented in `docs/evaluation.md`.
