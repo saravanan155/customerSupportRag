@@ -11,8 +11,11 @@ Current answer status values:
 
 Current confidence settings:
 
+- `CONFIDENCE_PROVIDER=nebius` for final submission
 - `CONFIDENCE_THRESHOLD=0.65`
 - `CONFIDENCE_MIN_SOURCES=2`
+
+Stage 3C note: the confidence assessment step now supports Nebius Token Factory through its OpenAI-compatible API. Earlier Stage 3B metrics remain valid for fallback behavior; after adding a local `NEBIUS_API_KEY` and setting `CONFIDENCE_PROVIDER=nebius`, rerun `support-bot check-connections` and the smoke tests to verify the same answer/escalation behavior with Nebius as the confidence provider.
 
 First-contact resolution rate is calculated as:
 

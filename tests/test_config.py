@@ -5,6 +5,9 @@ def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("APP_ENV", raising=False)
     monkeypatch.delenv("LOG_LEVEL", raising=False)
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("NEBIUS_API_KEY", raising=False)
+    monkeypatch.delenv("NEBIUS_BASE_URL", raising=False)
+    monkeypatch.delenv("NEBIUS_CONFIDENCE_MODEL", raising=False)
     monkeypatch.delenv("PINECONE_API_KEY", raising=False)
     monkeypatch.delenv("PINECONE_INDEX_NAME", raising=False)
     monkeypatch.delenv("PINECONE_NAMESPACE", raising=False)
@@ -16,6 +19,7 @@ def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("HYBRID_BM25_K", raising=False)
     monkeypatch.delenv("HYBRID_SEMANTIC_WEIGHT", raising=False)
     monkeypatch.delenv("HYBRID_BM25_WEIGHT", raising=False)
+    monkeypatch.delenv("CONFIDENCE_PROVIDER", raising=False)
     monkeypatch.delenv("CONFIDENCE_THRESHOLD", raising=False)
     monkeypatch.delenv("CONFIDENCE_MIN_SOURCES", raising=False)
 
@@ -25,6 +29,9 @@ def test_load_config_returns_defaults(monkeypatch):
         app_env="local",
         log_level="INFO",
         openai_api_key=None,
+        nebius_api_key=None,
+        nebius_base_url="https://api.tokenfactory.nebius.com/v1/",
+        nebius_confidence_model="Qwen/Qwen3-235B-A22B-Instruct-2507",
         pinecone_api_key=None,
         pinecone_index_name=None,
         pinecone_namespace="customer-support-simple-rag",
@@ -36,6 +43,7 @@ def test_load_config_returns_defaults(monkeypatch):
         hybrid_bm25_k=3,
         hybrid_semantic_weight=0.5,
         hybrid_bm25_weight=0.5,
+        confidence_provider="openai",
         confidence_threshold=0.65,
         confidence_min_sources=2,
         chunk_size=500,

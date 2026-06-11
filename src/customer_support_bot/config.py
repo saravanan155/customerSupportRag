@@ -16,6 +16,9 @@ class AppConfig:
     app_env: str = "local"
     log_level: str = "INFO"
     openai_api_key: str | None = field(default=None, repr=False)
+    nebius_api_key: str | None = field(default=None, repr=False)
+    nebius_base_url: str = "https://api.tokenfactory.nebius.com/v1/"
+    nebius_confidence_model: str = "Qwen/Qwen3-235B-A22B-Instruct-2507"
     pinecone_api_key: str | None = field(default=None, repr=False)
     pinecone_index_name: str | None = None
     pinecone_namespace: str = "customer-support-simple-rag"
@@ -27,6 +30,7 @@ class AppConfig:
     hybrid_bm25_k: int = 3
     hybrid_semantic_weight: float = 0.5
     hybrid_bm25_weight: float = 0.5
+    confidence_provider: str = "openai"
     confidence_threshold: float = 0.65
     confidence_min_sources: int = 2
     chunk_size: int = 500
@@ -67,6 +71,15 @@ def load_config(load_env_file: bool = True) -> AppConfig:
         app_env=getenv("APP_ENV", "local"),
         log_level=getenv("LOG_LEVEL", "INFO"),
         openai_api_key=getenv("OPENAI_API_KEY"),
+        nebius_api_key=getenv("NEBIUS_API_KEY"),
+        nebius_base_url=getenv(
+            "NEBIUS_BASE_URL",
+            "https://api.tokenfactory.nebius.com/v1/",
+        ),
+        nebius_confidence_model=getenv(
+            "NEBIUS_CONFIDENCE_MODEL",
+            "Qwen/Qwen3-235B-A22B-Instruct-2507",
+        ),
         pinecone_api_key=getenv("PINECONE_API_KEY"),
         pinecone_index_name=getenv("PINECONE_INDEX_NAME"),
         pinecone_namespace=getenv("PINECONE_NAMESPACE", "customer-support-simple-rag"),
@@ -78,6 +91,7 @@ def load_config(load_env_file: bool = True) -> AppConfig:
         hybrid_bm25_k=_get_int("HYBRID_BM25_K", 3),
         hybrid_semantic_weight=_get_float("HYBRID_SEMANTIC_WEIGHT", 0.5),
         hybrid_bm25_weight=_get_float("HYBRID_BM25_WEIGHT", 0.5),
+        confidence_provider=getenv("CONFIDENCE_PROVIDER", "openai"),
         confidence_threshold=_get_float("CONFIDENCE_THRESHOLD", 0.65),
         confidence_min_sources=_get_int("CONFIDENCE_MIN_SOURCES", 2),
         chunk_size=_get_int("CHUNK_SIZE", 500),

@@ -101,6 +101,61 @@ def check_pinecone_index(config: AppConfig) -> ConnectionCheckResult:
     )
 
 
+def check_nebius_confidence_model(config: AppConfig) -> ConnectionCheckResult:
+    """Verify the Nebius confidence model is reachable when configured."""
+
+    if config.confidence_provider.lower() != "nebius":
+        return ConnectionCheckResult(
+            name="nebius",
+            ok=True,
+            detail="Skipped; CONFIDENCE_PROVIDER is not 'nebius'.",
+        )
+
+    if not config.nebius_api_key:
+        return ConnectionCheckResult(
+            name="nebius",
+            ok=False,
+            detail="NEBIUS_API_KEY is required when CONFIDENCE_PROVIDER=nebius.",
+        )
+
+    try:
+        from openai import OpenAI
+
+        client = OpenAI(
+            api_key=config.nebius_api_key,
+            base_url=config.nebius_base_url,
+        )
+        response = client.chat.completions.create(
+            model=config.nebius_confidence_model,
+            messages=[
+                {
+                    "role": "user",
+                    "content": (
+                        "Return only JSON: "
+                        '{"answerable": true, "confidence": 1, "reason": "ok"}'
+                    ),
+                }
+            ],
+            temperature=0,
+        )
+    except Exception as exc:  # pragma: no cover - covered by live CLI use
+        return ConnectionCheckResult(
+            name="nebius",
+            ok=False,
+            detail=f"Nebius confidence check failed: {exc}",
+        )
+
+    content = response.choices[0].message.content or ""
+    return ConnectionCheckResult(
+        name="nebius",
+        ok=True,
+        detail=(
+            "Confidence model reachable via Nebius Token Factory; "
+            f"response_preview={content[:80]!r}."
+        ),
+    )
+
+
 def run_connection_checks(config: AppConfig) -> list[ConnectionCheckResult]:
     """Run setup checks in dependency order."""
 
@@ -110,5 +165,5 @@ def run_connection_checks(config: AppConfig) -> list[ConnectionCheckResult]:
 
     results.append(check_openai_embeddings(config))
     results.append(check_pinecone_index(config))
+    results.append(check_nebius_confidence_model(config))
     return results
-

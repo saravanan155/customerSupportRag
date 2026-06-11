@@ -5,6 +5,7 @@ from customer_support_bot.rag import (
     RAG_PROMPT,
     format_context,
     format_sources,
+    invoke_confidence_model,
     parse_json_object,
     parse_confidence_response,
     retrieve_documents,
@@ -133,6 +134,7 @@ def test_parse_confidence_response_returns_answered_status():
     assert assessment.answerable is True
     assert assessment.score == 0.82
     assert assessment.unique_source_count == 3
+    assert assessment.provider == "openai"
 
 
 def test_parse_confidence_response_handles_fenced_json():
@@ -192,6 +194,31 @@ def test_parse_json_object_rejects_non_object_json():
         assert "JSON object" in str(exc)
     else:
         raise AssertionError("Expected ValueError for non-object JSON.")
+
+
+def test_invoke_confidence_model_requires_nebius_key():
+    class Config:
+        confidence_provider = "nebius"
+        nebius_api_key = None
+
+    try:
+        invoke_confidence_model(Config(), "prompt")
+    except ValueError as exc:
+        assert "NEBIUS_API_KEY" in str(exc)
+    else:
+        raise AssertionError("Expected ValueError when Nebius key is missing.")
+
+
+def test_invoke_confidence_model_rejects_unknown_provider():
+    class Config:
+        confidence_provider = "unknown"
+
+    try:
+        invoke_confidence_model(Config(), "prompt")
+    except ValueError as exc:
+        assert "Unsupported confidence provider" in str(exc)
+    else:
+        raise AssertionError("Expected ValueError for unsupported provider.")
 
 
 def test_retrieve_documents_rejects_unknown_mode():

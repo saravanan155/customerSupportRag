@@ -151,6 +151,7 @@ def render_chat_tab() -> None:
                     retrieval_mode=retrieval_mode,
                 )
             st.caption(f"Retrieval mode: `{result.retrieval_mode}`")
+            st.caption(f"Confidence provider: `{result.confidence.provider}`")
             if result.confidence.status == "answered":
                 st.success(
                     f"Answered with confidence {result.confidence.score:.2f} "

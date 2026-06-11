@@ -11,6 +11,7 @@ from langchain_core.documents import Document
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
+from openai import OpenAI
 from pinecone import Pinecone
 
 from customer_support_bot.config import AppConfig
@@ -82,6 +83,7 @@ class ConfidenceAssessment:
     unique_source_count: int
     threshold: float
     min_sources: int
+    provider: str
 
 
 @dataclass(frozen=True)
@@ -192,6 +194,7 @@ def parse_confidence_response(
     unique_sources: int,
     threshold: float,
     min_sources: int,
+    provider: str = "openai",
 ) -> ConfidenceAssessment:
     """Parse the LLM answerability JSON into a bounded confidence decision."""
 
@@ -209,6 +212,7 @@ def parse_confidence_response(
             unique_source_count=unique_sources,
             threshold=threshold,
             min_sources=min_sources,
+            provider=provider,
         )
 
     bounded_score = max(0, min(score, 1))
@@ -226,6 +230,42 @@ def parse_confidence_response(
         unique_source_count=unique_sources,
         threshold=threshold,
         min_sources=min_sources,
+        provider=provider,
+    )
+
+
+def invoke_confidence_model(config: AppConfig, prompt_text: str) -> str:
+    """Call the configured model provider for confidence assessment."""
+
+    provider = config.confidence_provider.lower()
+    if provider == "openai":
+        llm = ChatOpenAI(
+            model=config.chat_model,
+            api_key=config.openai_api_key,
+            temperature=0,
+        )
+        response = llm.invoke(prompt_text)
+        return str(response.content)
+
+    if provider == "nebius":
+        if not config.nebius_api_key:
+            raise ValueError(
+                "NEBIUS_API_KEY is required when CONFIDENCE_PROVIDER=nebius."
+            )
+        client = OpenAI(
+            api_key=config.nebius_api_key,
+            base_url=config.nebius_base_url,
+        )
+        response = client.chat.completions.create(
+            model=config.nebius_confidence_model,
+            messages=[{"role": "user", "content": prompt_text}],
+            temperature=0,
+        )
+        return response.choices[0].message.content or ""
+
+    raise ValueError(
+        "Unsupported confidence provider: "
+        f"{config.confidence_provider}. Use 'openai' or 'nebius'."
     )
 
 
@@ -249,6 +289,7 @@ def assess_confidence(
             unique_source_count=unique_sources,
             threshold=config.confidence_threshold,
             min_sources=config.confidence_min_sources,
+            provider=config.confidence_provider,
         )
 
     prompt = CONFIDENCE_PROMPT.invoke(
@@ -257,18 +298,14 @@ def assess_confidence(
             "context": format_context(documents),
         }
     )
-    llm = ChatOpenAI(
-        model=config.chat_model,
-        api_key=config.openai_api_key,
-        temperature=0,
-    )
-    response = llm.invoke(prompt)
+    response_content = invoke_confidence_model(config, prompt.text)
 
     return parse_confidence_response(
-        str(response.content),
+        response_content,
         unique_sources=unique_sources,
         threshold=config.confidence_threshold,
         min_sources=config.confidence_min_sources,
+        provider=config.confidence_provider,
     )
 
 

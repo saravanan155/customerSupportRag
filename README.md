@@ -1,12 +1,12 @@
 # Customer Support Bot
 
-This is the starter workspace for the Week 2 customer support knowledge-base project.
+This is the completed workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 3B fallback evaluation and resolution metrics for the support RAG bot.
+Current state: Stage 3C Nebius-backed confidence fallback for the support RAG bot.
 
 ## Project One-Liner Draft
 
-My app helps support agents or customers answer support questions from tickets, FAQs, and product manuals in a chat or internal support UI with grounded answers and human escalation when confidence is low.
+My app helps support agents or customers answer banking support questions from FAQs, past tickets, product manuals, policies, and runbooks in a CLI or Streamlit chat UI with grounded citations, confidence-based human escalation, 75% bot-only first-contact resolution, and 100% safe handling on the 20-query evaluation set.
 
 ## Local Setup
 
@@ -23,12 +23,17 @@ Copy `.env.example` to `.env` and fill in your local values:
 cp .env.example .env
 ```
 
-Required for Stage 1:
+Required for the core RAG pipeline:
 
 - `OPENAI_API_KEY`
 - `PINECONE_API_KEY`
 - `PINECONE_INDEX_NAME`
 - `PINECONE_NAMESPACE`, optional; defaults to `customer-support-simple-rag`
+
+Required for final submission:
+
+- `NEBIUS_API_KEY`, used for the Stage 3 confidence/fallback model call
+- set `CONFIDENCE_PROVIDER=nebius` after adding the Nebius key
 
 ## Run CLI
 
@@ -42,9 +47,10 @@ support-bot ask "What is my account balance?" --retrieval hybrid
 streamlit run src/customer_support_bot/ui.py
 ```
 
-## Planned Docs
+## Project Docs
 
 - `docs/design.md`: RAG framework decisions.
+- `docs/submission_writeup.md`: final project narrative for submission.
 - `docs/simple_rag_test_results.md`: Stage 1 simple RAG showcase results.
 - `docs/hybrid_rag_test_results.md`: Stage 2 hybrid RAG showcase results.
 - `docs/fallback_rag_test_results.md`: detailed Stage 3 fallback showcase results.
@@ -171,3 +177,17 @@ Ran the 20-query evaluation set with hybrid retrieval and confidence fallback en
 - Answerable-query first-contact resolution rate: `15 / 15 = 100%`.
 - Safe handling rate, counting correct answers and correct escalations: `20 / 20 = 100%`.
 - Full metrics are documented in `docs/evaluation.md`; detailed answer/citation results are documented in `docs/fallback_rag_test_results.md`.
+
+#### Stage 3C: Nebius Token Factory Confidence Call
+
+Added Nebius Token Factory as the model provider for the confidence assessment step.
+
+- The main RAG pipeline still uses OpenAI embeddings, Pinecone retrieval, and OpenAI answer generation.
+- The confidence/fallback check can now use Nebius through its OpenAI-compatible API.
+- Configure with:
+  - `CONFIDENCE_PROVIDER=nebius`
+  - `NEBIUS_API_KEY`
+  - `NEBIUS_BASE_URL=https://api.tokenfactory.nebius.com/v1/`
+  - `NEBIUS_CONFIDENCE_MODEL=Qwen/Qwen3-235B-A22B-Instruct-2507`
+- Run `support-bot check-connections` after adding `NEBIUS_API_KEY`; it now verifies the Nebius confidence model when `CONFIDENCE_PROVIDER=nebius`.
+- This satisfies the Week 2 handout requirement to use Nebius Token Factory for at least one model call while keeping the tested retrieval and answer-generation path stable.

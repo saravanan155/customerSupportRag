@@ -127,6 +127,7 @@ def main() -> None:
         )
         print(f"Retrieval mode: {result.retrieval_mode}")
         print(f"Status: {result.confidence.status}")
+        print(f"Confidence provider: {result.confidence.provider}")
         print(
             "Confidence: "
             f"{result.confidence.score:.2f} "

@@ -12,6 +12,7 @@ Current behavior:
 - Retrieval method: Pinecone semantic retrieval + BM25 keyword retrieval
 - Fusion method: weighted RRF through LangChain `EnsembleRetriever`
 - Confidence fallback: enabled
+- Final confidence provider: Nebius Token Factory when `CONFIDENCE_PROVIDER=nebius`
 - Confidence threshold: `0.65`
 - Minimum distinct sources: `2`
 - Chat model: `gpt-4.1-mini`
@@ -67,6 +68,7 @@ Results:
 - Most answerable KB questions received high confidence (`0.95`) because the retrieved context included direct procedural or policy evidence.
 - Some hybrid citation lists still include less relevant tail records, but the confidence step focuses on whether the combined context is sufficient to answer safely.
 - Escalated cases are intentionally not counted as bot-resolved first-contact resolutions, but they are counted as safe handling when escalation is the correct outcome.
+- Stage 3C keeps the same fallback logic but routes the confidence assessment model call through Nebius Token Factory for the final handout requirement.
 
 ## Showcase Metrics
 
