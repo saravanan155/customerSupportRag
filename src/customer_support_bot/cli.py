@@ -7,6 +7,7 @@ from customer_support_bot import __version__
 from customer_support_bot.connection_checks import run_connection_checks
 from customer_support_bot.config import load_config
 from customer_support_bot.indexing import ingest_knowledge_base
+from customer_support_bot.rag import answer_question, format_sources
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -53,6 +54,22 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Append/upsert without clearing the namespace first.",
     )
+    ask_parser = subparsers.add_parser(
+        "ask",
+        help="Ask a question using simple semantic RAG.",
+    )
+    ask_parser.add_argument("question", help="Customer/support question to answer.")
+    ask_parser.add_argument(
+        "--namespace",
+        default=None,
+        help="Pinecone namespace. Defaults to PINECONE_NAMESPACE.",
+    )
+    ask_parser.add_argument(
+        "--k",
+        type=int,
+        default=None,
+        help="Number of chunks to retrieve. Defaults to RETRIEVAL_TOP_K.",
+    )
     return parser
 
 
@@ -92,6 +109,18 @@ def main() -> None:
             f"namespace='{result.namespace}', "
             f"mode={reset_label}"
         )
+        return
+
+    if args.command == "ask":
+        result = answer_question(
+            config,
+            args.question,
+            namespace=args.namespace,
+            k=args.k,
+        )
+        print(result.answer)
+        print()
+        print(format_sources(result.sources))
         return
 
     print(f"Project scaffold ready. env={config.app_env} log_level={config.log_level}")

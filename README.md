@@ -2,7 +2,7 @@
 
 This is the starter workspace for the Week 2 customer support knowledge-base project.
 
-Current state: Stage 1 simple RAG offline ingestion.
+Current state: Stage 1 simple RAG online retrieval and generation.
 
 ## Project One-Liner Draft
 
@@ -36,6 +36,7 @@ Required for Stage 1:
 support-bot --version
 support-bot check-connections
 support-bot ingest
+support-bot ask "How do I dispute a charge on my card?"
 ```
 
 ## Planned Docs
@@ -91,7 +92,20 @@ support-bot ingest
 
 #### Stage 1C: Online Retrieval and Generation
 
-Planned next: retrieve chunks from Pinecone, optionally rerank the simple semantic results, and generate grounded support answers.
+Added simple semantic RAG over the Pinecone namespace populated by offline ingestion.
+
+```bash
+support-bot ask "How do I dispute a charge on my card?"
+```
+
+- Uses Pinecone semantic similarity search with `RETRIEVAL_TOP_K=5`.
+- Uses `CHAT_MODEL=gpt-4.1-mini`, matching the Week 2 notebook pattern.
+- Builds a prompt from retrieved chunks and asks the LLM to answer only from context.
+- Prints the generated answer plus retrieved source chunk citations, including the original JSON `record_id`.
+- Does not add BM25, custom reranking, or confidence fallback yet.
+- Verified live query:
+  - `support-bot ask "How do I dispute a charge on my card?"`
+  - returned a grounded answer with five source chunks from the banking support KB.
 
 ### Stage 2: Hybrid RAG
 

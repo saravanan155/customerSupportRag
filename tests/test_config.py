@@ -10,6 +10,8 @@ def test_load_config_returns_defaults(monkeypatch):
     monkeypatch.delenv("PINECONE_NAMESPACE", raising=False)
     monkeypatch.delenv("EMBEDDING_MODEL", raising=False)
     monkeypatch.delenv("EMBEDDING_DIMENSIONS", raising=False)
+    monkeypatch.delenv("CHAT_MODEL", raising=False)
+    monkeypatch.delenv("RETRIEVAL_TOP_K", raising=False)
 
     config = load_config(load_env_file=False)
 
@@ -22,6 +24,8 @@ def test_load_config_returns_defaults(monkeypatch):
         pinecone_namespace="customer-support-simple-rag",
         embedding_model="text-embedding-3-small",
         embedding_dimensions=512,
+        chat_model="gpt-4.1-mini",
+        retrieval_top_k=5,
         chunk_size=500,
         chunk_overlap=100,
     )
