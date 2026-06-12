@@ -1,8 +1,6 @@
 # Customer Support Bot
 
-This is the completed workspace for the Week 2 customer support knowledge-base project.
-
-Current state: Stage 3C Nebius-backed confidence fallback for the support RAG bot.
+This is the completed workspace for the Week 2 Project - Customer Support Knowledge-base RAG.
 
 ![Banking Support RAG Pipeline Overview](docs/images/Banking_Support_RAG_Pipeline_Overview.png)
 
@@ -31,9 +29,6 @@ Required for the core RAG pipeline:
 - `PINECONE_API_KEY`
 - `PINECONE_INDEX_NAME`
 - `PINECONE_NAMESPACE`, optional; defaults to `customer-support-simple-rag`
-
-Required for final submission:
-
 - `NEBIUS_API_KEY`, used for the Stage 3 confidence/fallback model call
 - set `CONFIDENCE_PROVIDER=nebius` after adding the Nebius key
 
@@ -198,4 +193,3 @@ Added Nebius Token Factory as the model provider for the confidence assessment s
   - `NEBIUS_BASE_URL=https://api.tokenfactory.nebius.com/v1/`
   - `NEBIUS_CONFIDENCE_MODEL=Qwen/Qwen3-235B-A22B-Instruct-2507`
 - Run `support-bot check-connections` after adding `NEBIUS_API_KEY`; it now verifies the Nebius confidence model when `CONFIDENCE_PROVIDER=nebius`.
-- This satisfies the Week 2 handout requirement to use Nebius Token Factory for at least one model call while keeping the tested retrieval and answer-generation path stable.
